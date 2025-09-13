@@ -1,0 +1,151 @@
+/* Services Section */
+.services {
+  background: #f8fafc;
+  padding: 5rem 2rem;
+}
+
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.services-categories {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.category-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #374151;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-title:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* Services Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+}
+
+.service-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.service-description {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* Plus Icon */
+.service-plus {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: #d1d5db;
+}
+
+/* Large card */
+.large-card {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.service-image img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.service-plus-large {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  color: #d1d5db;
+}
+
+/* Connect button card */
+.connect-card {
+  background: #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.connect-button {
+  background: none;
+  border: 2px solid white;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.connect-button:hover {
+  background: white;
+  color: #3b82f6;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .services-categories { gap: 1rem; }
+}
+
+@media (max-width: 768px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .large-card { grid-column: span 1; }
+  .services-title { font-size: 2rem; }
+}
+
+@media (max-width: 480px) {
+  .services { padding: 3rem 1rem; }
+  .category-title { font-size: 1rem; padding: 0.5rem; }
+}
