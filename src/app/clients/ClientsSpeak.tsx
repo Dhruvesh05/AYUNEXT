@@ -63,7 +63,7 @@ export default function ClientsSpeak() {
             {testimonials.concat(testimonials).map((t, idx) => (
               <div key={idx} className={styles.card}>
                 <FaQuoteLeft className={styles.symbol} />
-                <p className={styles.quote}>"{t.quote}"</p>
+                <p className={styles.quote}>{t.quote}</p>
                 <h3 className={styles.name}>{t.name}</h3>
                 <span className={styles.domain}>{t.domain}</span>
               </div>
@@ -77,7 +77,7 @@ export default function ClientsSpeak() {
             {testimonials.concat(testimonials).map((t, idx) => (
               <div key={idx} className={styles.card}>
                 <FaQuoteLeft className={styles.symbol} />
-                <p className={styles.quote}>"{t.quote}"</p>
+                <p className={styles.quote}>{t.quote}</p>
                 <h3 className={styles.name}>{t.name}</h3>
                 <span className={styles.domain}>{t.domain}</span>
               </div>
