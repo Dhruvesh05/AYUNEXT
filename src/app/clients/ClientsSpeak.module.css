@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap");
+
+.clientsSection {
+  padding: clamp(3rem, 5vw, 6rem) 1rem;
+  background: #f9f9f9;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2.5rem, 5vw, 90.993px);
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+}
+
+.description {
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  color: #444;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+/* Carousel */
+.carouselWrapper {
+  overflow-x: hidden;
+  margin-bottom: 2rem;
+}
+
+.carouselContent {
+  display: flex;
+  gap: clamp(1rem, 2vw, 2rem);
+  width: max-content;
+  font-family: "DM Sans", sans-serif;
+}
+
+/* Card */
+/* Card */
+.card {
+  background: #fff;
+  min-width: 250px;
+  max-width: 300px;
+  padding: 1.5rem 1rem;
+  border-radius: 16px;
+  flex-shrink: 0;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* evenly distribute content vertically */
+  text-align: center;
+}
+
+.card:hover {
+  background: #b9ff66;
+}
+
+.symbol {
+  font-size: 2rem;
+  color: #13caab;
+  margin-bottom: 0.75rem;
+  flex-shrink: 0;
+}
+
+.quote {
+  font-size: 1rem;
+  font-style: italic;
+  color: #333;
+  margin-bottom: 0.75rem;
+  flex-grow: 1; /* allows quote to expand but keep spacing consistent */
+}
+
+.name {
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.25rem;
+  flex-shrink: 0;
+}
+
+.domain {
+  font-size: 0.875rem;
+  color: #666;
+  flex-shrink: 0;
+}
+
+
+/* Responsive */
+@media (max-width: 992px) {
+  .carouselContent {
+    gap: 1rem;
+  }
+
+  .card {
+    min-width: 200px;
+    padding: 1rem;
+  }
+}

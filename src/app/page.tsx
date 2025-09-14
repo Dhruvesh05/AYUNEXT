@@ -3,7 +3,8 @@ import React, { useState, useEffect, useRef } from "react";
 import "./page.css";
 import Services from "./services/software-development/software-development";
 import AboutUs from "./knowUs/AboutUs";
-import Approach from "./approach/Approach"; // ✅ New Approach section
+import Approach from "./approach/Approach";
+import ClientsSpeak from "./clients/ClientsSpeak"; // ✅ Import ClientsSpeak
 
 export default function HomePage() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -14,10 +15,7 @@ export default function HomePage() {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setDropdownOpen(false);
       }
     };
@@ -33,6 +31,16 @@ export default function HomePage() {
       setActiveServiceTab(tabIndex);
     }
     setDropdownOpen(false);
+    setMenuOpen(false);
+  };
+
+  // Scroll to ClientsSpeak section
+  const handleClientsScroll = () => {
+    const clientsSection = document.getElementById("clients");
+    if (clientsSection) {
+      clientsSection.scrollIntoView({ behavior: "smooth" });
+    }
+    setMenuOpen(false);
   };
 
   return (
@@ -47,19 +55,13 @@ export default function HomePage() {
             <div className="nav-container">
               <ul className="nav-menu">
                 <li>
-                  <a href="#hero" className="nav-link active">
-                    Home
-                  </a>
+                  <a href="#hero" className="nav-link active">Home</a>
                 </li>
                 <li>
-                  <a href="#about" className="nav-link">
-                    About Us
-                  </a>
+                  <a href="#about" className="nav-link">About Us</a>
                 </li>
                 <li>
-                  <a href="#approach" className="nav-link">
-                    Approach
-                  </a>
+                  <a href="#approach" className="nav-link">Approach</a>
                 </li>
 
                 {/* Dropdown */}
@@ -72,37 +74,66 @@ export default function HomePage() {
                   </button>
                   {dropdownOpen && (
                     <div className="dropdown-menu">
-                      <button
-                        className="dropdown-item"
-                        onClick={() => handleServiceClick(0)}
-                      >
-                        Software Development
-                      </button>
-                      <button
-                        className="dropdown-item"
-                        onClick={() => handleServiceClick(1)}
-                      >
-                        Digital Marketing
-                      </button>
-                      <button
-                        className="dropdown-item"
-                        onClick={() => handleServiceClick(2)}
-                      >
-                        Financial Services
-                      </button>
+                      <a
+  href="#services"
+  className="dropdown-item"
+  onClick={(e) => {
+    e.preventDefault();
+    const servicesSection = document.getElementById("services");
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: "smooth" });
+      setActiveServiceTab(0); // for Software Development
+    }
+    setDropdownOpen(false);
+    setMenuOpen(false);
+  }}
+>
+  Software Development
+</a>
+
+<a
+  href="#services"
+  className="dropdown-item"
+  onClick={(e) => {
+    e.preventDefault();
+    const servicesSection = document.getElementById("services");
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: "smooth" });
+      setActiveServiceTab(1); // for Digital Marketing
+    }
+    setDropdownOpen(false);
+    setMenuOpen(false);
+  }}
+>
+  Digital Marketing
+</a>
+
+<a
+  href="#services"
+  className="dropdown-item"
+  onClick={(e) => {
+    e.preventDefault();
+    const servicesSection = document.getElementById("services");
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: "smooth" });
+      setActiveServiceTab(2); // for Financial Services
+    }
+    setDropdownOpen(false);
+    setMenuOpen(false);
+  }}
+>
+  Financial Services
+</a>
+
                     </div>
                   )}
                 </li>
 
                 <li>
-                  <a href="#resources" className="nav-link">
-                    Resources
-                  </a>
+                  <a onClick={handleClientsScroll}>Resources</a>
                 </li>
                 <li>
-                  <a href="#contact" className="nav-link">
-                    Contact
-                  </a>
+                  <a href="#contact" className="nav-link">Contact</a>
                 </li>
               </ul>
 
@@ -120,24 +151,12 @@ export default function HomePage() {
             {/* Mobile Menu */}
             {menuOpen && (
               <div className="mobile-menu">
-                <a href="#hero" onClick={() => setMenuOpen(false)}>
-                  Home
-                </a>
-                <a href="#about" onClick={() => setMenuOpen(false)}>
-                  About Us
-                </a>
-                <a href="#approach" onClick={() => setMenuOpen(false)}>
-                  Approach
-                </a>
-                <a href="#services" onClick={() => setMenuOpen(false)}>
-                  Services
-                </a>
-                <a href="#resources" onClick={() => setMenuOpen(false)}>
-                  Resources
-                </a>
-                <a href="#contact" onClick={() => setMenuOpen(false)}>
-                  Contact
-                </a>
+                <a href="#hero" onClick={() => setMenuOpen(false)}>Home</a>
+                <a href="#about" onClick={() => setMenuOpen(false)}>About Us</a>
+                <a href="#approach" onClick={() => setMenuOpen(false)}>Approach</a>
+                <a href="#services" onClick={() => setMenuOpen(false)}>Services</a>
+                <a onClick={handleClientsScroll}>Resources</a>
+                <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
               </div>
             )}
           </nav>
@@ -148,14 +167,12 @@ export default function HomePage() {
           <div className="hero-content">
             <div className="hero-text">
               <h1 className="hero-title">
-                Innovation.
-                <br />
-                Finance. Growth
+                Innovation.<br />Finance. Growth
               </h1>
               <p className="hero-description">
                 Ayunext Solutions delivers business-focused technology and
-                financial services to help companies grow, streamline
-                operations, and secure their financial future.
+                financial services to help companies grow, streamline operations,
+                and secure their financial future.
               </p>
               <button className="cta-button">Get Advice</button>
             </div>
@@ -187,14 +204,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ✅ Services Section */}
+      {/* Sections */}
       <Services scrollToTab={activeServiceTab ?? undefined} />
-
-      {/* ✅ About Us Section */}
       <AboutUs />
-
-      {/* ✅ Approach Section */}
       <Approach />
+      <ClientsSpeak /> {/* ✅ Clients Speak Section */}
     </div>
   );
 }
