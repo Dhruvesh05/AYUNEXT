@@ -10,6 +10,11 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 .homepage {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   line-height: 1.6;
@@ -25,11 +30,9 @@
   left: 0;
   width: 100%;
   background: transparent;
-  /* backdrop-filter: blur(25px); */
   z-index: 1000;
-  /* box-shadow: 0 2px 8px rgba(0,0,0,0.1); */
-  /* border: 1px solid rgba(0,0,0, 1); */
 }
+
 /* Inner nav container */
 .nav-container {
   max-width: 1200px;
@@ -46,28 +49,26 @@
   position: absolute;
   top: 0;
   left: 20px;
-  z-index: 1100; /* keeps it above navbar */
+  z-index: 1100;
 }
 
 .logo img {
   width: 120px;
   height: auto;
-  max-width: 30vw; /* responsive scaling */
+  max-width: 30vw;
 }
-
-
 
 /* Nav menu */
 .nav-menu {
   list-style: none;
   display: flex;
   gap: 2rem;
-  background: white;       /* Tailwind yellow-400 */
+  background: white;
   padding: 0.7rem 1.5rem;
-  border: 1px solid rgba(0, 0, 0, 0.1); /* subtle border */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* light shadow */
-  border-radius: 14px;     /* fully rounded */
-  position: absolute;        /* move to top-center */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 14px;
+  position: absolute;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
@@ -81,6 +82,7 @@
   font-weight: 300;
   position: relative;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 
 /* Underline effect */
@@ -88,7 +90,7 @@
   content: "";
   position: absolute;
   left: 0;
-  bottom: -4px;
+  bottom: -2px;
   height: 1px;
   width: 100%;
   background-color: #4982fd;
@@ -102,11 +104,61 @@
   transform-origin: left;
 }
 
+/* ✅ Dropdown styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  font: inherit;
+  color: #111827;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.arrow {
+  font-size: 0.7rem;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: 140%;
+  left: 0;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  z-index: 1000;
+}
+
+.dropdown-item {
+  padding: 0.6rem 1rem;
+  text-decoration: none;
+  color: #111827;
+  font-weight: 300;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background: #f1f1f1;
+}
+
+
 
 .nav-link:hover {
   color: #4982fd;
 }
 
+/* Hamburger */
 /* Hamburger */
 .hamburger {
   display: none;
@@ -158,12 +210,14 @@
 }
 
 .hero-title {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 68px;
-  font-weight: 900;
+  font-size: 103px;
+font-style: normal;
+font-weight: 700;
+line-height: 89%; /* 91.67px */
+letter-spacing: -2.06px;
   color: #1f2937;
   margin-bottom: 1.5rem;
-  line-height: 1.1;
+  
 }
 
 .hero-description {
@@ -447,4 +501,44 @@ h1 {
 
 p {
   font-family: var(--font-manrope), sans-serif;
+}
+
+
+
+
+/* Mobile menu popup */
+.mobile-menu {
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  color: #111827;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.mobile-menu a:hover {
+  color: #0070f3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
 }
