@@ -25,7 +25,7 @@ export default function AboutUs() {
           </div>
           <div className={styles.imageWrapper}>
             <img
-              src="/images/about1.jpg"
+              src="/images/vercel.svg"
               alt="About Us"
               className={styles.image}
             />
@@ -50,7 +50,7 @@ export default function AboutUs() {
           </div>
           <div className={styles.imageWrapper}>
             <img
-              src="/images/about2.jpg"
+              src="/images/window.svg"
               alt="Our Mission"
               className={styles.image}
             />

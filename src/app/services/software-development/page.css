@@ -1,0 +1,75 @@
+.software-dev-page {
+  font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+.subpage-header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.subpage-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.nav-logo img {
+  height: 40px;
+}
+
+.subpage-nav-menu {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.service-hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #e0e0e0, #f9f9f9);
+}
+
+.service-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  animation: fadeInUp 1s ease-out;
+}
+
+.service-subtitle {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.service-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 3rem 2rem;
+}
+
+.service-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s;
+}
+
+.service-box:hover {
+  transform: translateY(-8px);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
