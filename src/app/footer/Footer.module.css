@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap");
+
+
+.footer {
+  background: #191a23;
+  color: #fff;
+  padding: 60px 20px 30px;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+/* About Section */
+.about {
+  flex: 1 1 300px;
+}
+
+.logo {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.backToTop {
+  background: transparent;
+  color: white;
+  padding: 10px 20px;
+  border: 1px solid white;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 300;
+  transition: 0.3s ease;
+}
+
+.backToTop:hover {
+  background: #a0e048;
+  color: black;
+  border-color: #a0e048;
+}
+
+/* Links Sections */
+.linksSection,
+.servicesSection {
+  flex: 1 1 200px;
+}
+
+.linksSection h4,
+.servicesSection h4 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #b9ff66;
+}
+
+.links {
+  list-style: none;
+  padding: 0;
+}
+
+.links li {
+  margin-bottom: 10px;
+}
+
+.links li a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.links li a:hover {
+  color: #b9ff66;
+}
+
+.servicesSection li {
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.servicesSection li:hover {
+  color: #b9ff66;
+}
+
+/* Copyright */
+.copy {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.85rem;
+  color: #ccc;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .about,
+  .linksSection,
+  .servicesSection {
+    flex: 1 1 100%;
+  }
+
+  .logo {
+    width: 120px;
+  }
+}
+
+@media (max-width: 576px) {
+  .backToTop {
+    width: 100%;
+    text-align: center;
+  }
+}

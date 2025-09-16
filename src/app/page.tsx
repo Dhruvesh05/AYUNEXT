@@ -9,6 +9,7 @@ import ClientsSpeak from "./clients/ClientsSpeak";
 import FeaturedClients from "./featuredclients/FeaturedClients";
 import Blogs from "./blog/Blogs";
 import Contact from "./contact/Contact"; // ✅ Import Contact component
+import Footer from "./footer/Footer"; // ✅ Import Footer component
 
 import { useRouter } from "next/navigation";
 
@@ -189,6 +190,7 @@ export default function HomePage() {
       <FeaturedClients />
       <Blogs />  {/* Blogs Section */}
       <Contact /> {/* ✅ Contact Section now appears below Blogs */}
+      <Footer />
     </div>
   );
 }
