@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap");
+
+.section {
+  padding: 80px 20px;
+  background: #f5f7fa;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-family: "Space Grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  color: #191A23;
+
+  /* Responsive font size */
+  font-size: clamp(1.8rem, 5vw, 5.6rem); 
+  /* min: ~29px, prefers scaling with 5% of viewport width, max: ~90px */
+
+  margin-bottom: clamp(1rem, 2vw, 2rem);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.formWrapper {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Green Banner */
+.banner {
+  background: #b9ff66;
+  padding: 40px 30px;
+  text-align: center;
+  position: relative;
+  border-radius: 18px 18px 0 0;
+}
+
+.banner::before,
+.banner::after {
+  content: "";
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff 40%, #a8f24c 70%);
+  top: 20px;
+}
+
+.banner::before {
+  left: -60px;
+}
+
+.banner::after {
+  right: -60px;
+}
+
+.bannerTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #191a23;
+  margin-bottom: 10px;
+}
+
+.bannerText {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.bannerButton {
+  background: #191a23;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.bannerButton:hover {
+  background: #333;
+}
+
+/* Form */
+.form {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Scoped inputs, selects, textareas */
+.formInput,
+.formSelect,
+.formTextarea {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  font-size: 0.95rem;
+  font-family: "Space Grotesk", sans-serif;
+  background: transparent;
+}
+
+.formTextarea {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: none;
+}
+
+/* Checkbox */
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkboxRow input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #b9ff66;
+}
+
+.submitButton {
+  background: transparent;
+  border: 1.5px solid #191a23;
+  padding: 10px 28px;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0 auto;
+  transition: 0.3s ease;
+}
+
+.submitButton:hover {
+  background: #191a23;
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+}

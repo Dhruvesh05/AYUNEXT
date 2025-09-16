@@ -1,17 +1,23 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import "./page.css";
+
 import Services from "./services/software-development/software-development";
 import AboutUs from "./knowUs/AboutUs";
 import Approach from "./approach/Approach";
 import ClientsSpeak from "./clients/ClientsSpeak";
+import FeaturedClients from "./featuredclients/FeaturedClients";
+import Blogs from "./blog/Blogs";
+import Contact from "./contact/Contact"; // ✅ Import Contact component
+
+import { useRouter } from "next/navigation";
 
 export default function HomePage() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeServiceTab, setActiveServiceTab] = useState<number | null>(null);
-
+  const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLLIElement>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -23,41 +29,34 @@ export default function HomePage() {
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
-
-  const handleServiceClick = (tabIndex: number) => {
-    const servicesSection = document.getElementById("services");
-    if (servicesSection) {
-      servicesSection.scrollIntoView({ behavior: "smooth" });
-      setActiveServiceTab(tabIndex);
-    }
-    setDropdownOpen(false);
-    setMenuOpen(false);
-  };
-
-  const handleClientsScroll = () => {
-    const clientsSection = document.getElementById("clients");
-    if (clientsSection) {
-      clientsSection.scrollIntoView({ behavior: "smooth" });
-    }
-    setMenuOpen(false);
-  };
 
   return (
     <div className="homepage">
       {/* Hero Section */}
       <section className="hero" id="hero">
         <header>
-          <nav className="navbar">
+          <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
             <div className="nav-container">
-              {/* ✅ Nav Menu with Logo */}
+              {/* Logo */}
+              <div className="nav-logo">
+                <a href="#hero">
+                  <img src="/Ayunextlogo.png" alt="Ayunext Logo" />
+                </a>
+              </div>
+
+              {/* Nav Menu */}
               <ul className={`nav-menu ${menuOpen ? "active" : ""}`}>
-                <li className="nav-logo">
-                  <a href="#hero">
-                    <img src="/Ayunextlogo.png" alt="Ayunext Logo" />
-                  </a>
-                </li>
                 <li>
                   <a href="#hero" className="nav-link active">
                     Home
@@ -68,9 +67,6 @@ export default function HomePage() {
                     About Us
                   </a>
                 </li>
-                {/* 
-                
-                */}
 
                 {/* Dropdown */}
                 <li className="dropdown" ref={dropdownRef}>
@@ -87,7 +83,9 @@ export default function HomePage() {
                         className="dropdown-item"
                         onClick={(e) => {
                           e.preventDefault();
-                          handleServiceClick(0);
+                          router.push("/services/software-development");
+                          setDropdownOpen(false);
+                          setMenuOpen(false);
                         }}
                       >
                         Software Development
@@ -97,17 +95,21 @@ export default function HomePage() {
                         className="dropdown-item"
                         onClick={(e) => {
                           e.preventDefault();
-                          handleServiceClick(1);
+                          router.push("/services/digital-marketing");
+                          setDropdownOpen(false);
+                          setMenuOpen(false);
                         }}
                       >
                         Digital Marketing
                       </a>
                       <a
-                        href="#services"
+                        href="/services/financial-services"
                         className="dropdown-item"
                         onClick={(e) => {
                           e.preventDefault();
-                          handleServiceClick(2);
+                          router.push("/services/financial-services");
+                          setDropdownOpen(false);
+                          setMenuOpen(false);
                         }}
                       >
                         Financial Services
@@ -154,13 +156,13 @@ export default function HomePage() {
               </h1>
               <p className="hero-description">
                 Ayunext Solutions delivers business-focused technology and
-                financial services to help companies grow, streamline
-                operations, and secure their financial future.
+                financial services to help companies grow, streamline operations,
+                and secure their financial future.
               </p>
               <button className="cta-button">Get Advice</button>
             </div>
 
-            {/* ✅ Hero Stats in Grey Shaded Box */}
+            {/* Hero Stats Box */}
             <div className="hero-stats-box">
               <div className="stat-item">
                 <div className="stat-number">50+</div>
@@ -180,10 +182,13 @@ export default function HomePage() {
       </section>
 
       {/* Sections */}
-      <Services scrollToTab={activeServiceTab ?? undefined} />
+      <Services />
       <AboutUs />
       <Approach />
       <ClientsSpeak />
+      <FeaturedClients />
+      <Blogs />  {/* Blogs Section */}
+      <Contact /> {/* ✅ Contact Section now appears below Blogs */}
     </div>
   );
 }

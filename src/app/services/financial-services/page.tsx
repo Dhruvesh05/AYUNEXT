@@ -1,9 +1,10 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import "./software-development.css";
+// Reuse software-development.css to keep consistent design
+import "../software-development/software-development.css";
 
-export default function SoftwareDevelopmentPage() {
+export default function FinancialServicesPage() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLLIElement>(null);
@@ -62,12 +63,18 @@ export default function SoftwareDevelopmentPage() {
                     >
                       Software Development
                     </Link>
-                    <a href="/services/digital-marketing" className="dropdown-item">
+                    <Link
+                      href="/services/digital-marketing"
+                      className="dropdown-item"
+                    >
                       Digital Marketing
-                    </a>
-                    <a href="/services/financial-services" className="dropdown-item">
+                    </Link>
+                    <Link
+                      href="/services/financial-services"
+                      className="dropdown-item"
+                    >
                       Financial Services
-                    </a>
+                    </Link>
                   </div>
                 )}
               </li>
@@ -99,35 +106,41 @@ export default function SoftwareDevelopmentPage() {
 
       {/* ✅ Page Content */}
       <section className="service-hero">
-        <h1 className="service-title">Software Development</h1>
+        <h1 className="service-title">Financial Services</h1>
         <p className="service-subtitle">
-          Building scalable, modern, and secure software solutions tailored for
-          your business.
+          Expert financial solutions to manage, grow, and protect your wealth.
         </p>
       </section>
 
       <section className="service-content">
         <div className="service-box">
-          <h2>Custom Web Applications</h2>
+          <h2>Financial Planning</h2>
           <p>
-            We design and develop custom web apps using the latest frameworks
-            like React, Next.js, and Spring Boot.
+            Customized financial plans to help you achieve long-term security
+            and growth.
           </p>
         </div>
 
         <div className="service-box">
-          <h2>Mobile Applications</h2>
+          <h2>Tax & Compliance</h2>
           <p>
-            Native and cross-platform apps built with performance and user
-            experience in mind.
+            Stay compliant while maximizing tax efficiency with expert guidance.
           </p>
         </div>
 
         <div className="service-box">
-          <h2>Cloud & DevOps</h2>
+          <h2>Investment Solutions</h2>
           <p>
-            From cloud migration to CI/CD pipelines, we ensure your software
-            runs smoothly at scale.
+            Diversified investment strategies tailored to your unique goals and
+            risk profile.
+          </p>
+        </div>
+
+        <div className="service-box">
+          <h2>Risk Management</h2>
+          <p>
+            Identify, assess, and mitigate financial risks to safeguard your
+            assets.
           </p>
         </div>
       </section>

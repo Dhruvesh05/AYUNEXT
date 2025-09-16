@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap");
+
+.section {
+  padding: 60px 15px; /* reduced from 80px */
+  background-color: #f9f9f9;
+}
+
+.container {
+  max-width: 1100px; /* slightly narrower */
+  margin: 0 auto;
+}
+
+.heading {
+  font-family: "Space Grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  color: #191A23;
+
+  /* Responsive font size */
+  font-size: clamp(1.8rem, 5vw, 5.6rem); 
+  /* min: ~29px, prefers scaling with 5% of viewport width, max: ~90px */
+
+  margin-bottom: clamp(1rem, 2vw, 2rem);
+  text-align: center;
+  line-height: 1.2;;
+}
+
+.subtitle {
+  font-size: 1rem; /* reduced */
+  color: #555;
+  margin: 0 auto 30px auto;
+  max-width: 700px;
+  text-align: justify;
+  line-height: 1.5;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 20px; /* reduced from 30px */
+  align-items: stretch;
+}
+
+/* Left big card */
+.bigCard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.bigCard .card {
+  flex: 1;
+  height: 100%;
+}
+
+/* Right stacked cards */
+.smallCards {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 15px; /* reduced */
+}
+
+.smallCards .card {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+/* Card */
+.card {
+  background: #fff;
+  border-radius: 10px; /* smaller radius */
+  overflow: hidden;
+  box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.03);
+}
+
+.cardContent {
+  padding: 15px; /* reduced */
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Text effects */
+.meta {
+  font-size: 0.8rem; /* reduced */
+  color: #666;
+  margin-bottom: 8px;
+  opacity: 0.8;
+}
+
+.title {
+  font-size: 1.1rem; /* reduced */
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #222;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover .title {
+  color: #16c79a;
+  transform: translateX(3px);
+}
+
+.excerpt {
+  font-size: 0.9rem; /* reduced */
+  color: #555;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .excerpt {
+  opacity: 0.85;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 4px 10px; /* smaller */
+  border-radius: 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Tag colors */
+.software {
+  background: #16c79a;
+}
+.finance {
+  background: #4caf50;
+}
+.marketing {
+  background: #ff9800;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .smallCards .card {
+    flex-direction: column;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .heading {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .title {
+    font-size: 0.95rem;
+  }
+}

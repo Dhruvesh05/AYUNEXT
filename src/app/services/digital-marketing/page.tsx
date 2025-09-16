@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import "./software-development.css";
+import "./page.css";
 
-export default function SoftwareDevelopmentPage() {
+export default function DigitalMarketingPage() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLLIElement>(null);
@@ -23,7 +23,7 @@ export default function SoftwareDevelopmentPage() {
   }, []);
 
   return (
-    <div className="software-dev-page">
+    <div className="digital-marketing-page">
       {/* ✅ Navbar copied from homepage */}
       <header>
         <nav className="navbar">
@@ -41,7 +41,7 @@ export default function SoftwareDevelopmentPage() {
                 </Link>
               </li>
               <li>
-                <a href="/#about" className="nav-link">
+                <a href="#about" className="nav-link">
                   About Us
                 </a>
               </li>
@@ -62,10 +62,13 @@ export default function SoftwareDevelopmentPage() {
                     >
                       Software Development
                     </Link>
-                    <a href="/services/digital-marketing" className="dropdown-item">
+                    <Link
+                      href="/services/digital-marketing"
+                      className="dropdown-item"
+                    >
                       Digital Marketing
-                    </a>
-                    <a href="/#services" className="dropdown-item">
+                    </Link>
+                    <a href="#services" className="dropdown-item">
                       Financial Services
                     </a>
                   </div>
@@ -73,12 +76,12 @@ export default function SoftwareDevelopmentPage() {
               </li>
 
               <li>
-                <a href="/#clients" className="nav-link">
+                <a href="#clients" className="nav-link">
                   Resources
                 </a>
               </li>
               <li>
-                <a href="/#contact" className="nav-link">
+                <a href="#contact" className="nav-link">
                   Contact
                 </a>
               </li>
@@ -99,35 +102,31 @@ export default function SoftwareDevelopmentPage() {
 
       {/* ✅ Page Content */}
       <section className="service-hero">
-        <h1 className="service-title">Software Development</h1>
+        <h1 className="service-title">Digital Marketing</h1>
         <p className="service-subtitle">
-          Building scalable, modern, and secure software solutions tailored for
-          your business.
+          Helping your business grow online with smart and data-driven marketing strategies.
         </p>
       </section>
 
       <section className="service-content">
         <div className="service-box">
-          <h2>Custom Web Applications</h2>
+          <h2>SEO & Content Marketing</h2>
           <p>
-            We design and develop custom web apps using the latest frameworks
-            like React, Next.js, and Spring Boot.
+            Improve your search rankings and attract the right audience with optimized content strategies.
           </p>
         </div>
 
         <div className="service-box">
-          <h2>Mobile Applications</h2>
+          <h2>Social Media Marketing</h2>
           <p>
-            Native and cross-platform apps built with performance and user
-            experience in mind.
+            Engage with your audience and build brand loyalty across major social platforms.
           </p>
         </div>
 
         <div className="service-box">
-          <h2>Cloud & DevOps</h2>
+          <h2>Paid Advertising (PPC)</h2>
           <p>
-            From cloud migration to CI/CD pipelines, we ensure your software
-            runs smoothly at scale.
+            Drive targeted traffic and maximize ROI with effective Google Ads and social media campaigns.
           </p>
         </div>
       </section>

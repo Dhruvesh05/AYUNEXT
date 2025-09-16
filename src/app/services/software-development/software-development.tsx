@@ -26,7 +26,6 @@ const SoftwareDevelopment = ({ scrollToTab }: { scrollToTab?: number }) => {
         <div className={styles.serviceCategories}>
           <button
             className={`${styles.category} ${activeTab === 0 ? styles.active : ""}`}
-            // ✅ Navigate to new page instead of only switching tab
             onClick={() => router.push("/services/software-development")}
           >
             Software Development
@@ -34,84 +33,20 @@ const SoftwareDevelopment = ({ scrollToTab }: { scrollToTab?: number }) => {
 
           <button
             className={`${styles.category} ${activeTab === 1 ? styles.active : ""}`}
-            onClick={() => setActiveTab(1)}
+            onClick={() => router.push("/services/digital-marketing")}
           >
             Digital Marketing
           </button>
 
           <button
             className={`${styles.category} ${activeTab === 2 ? styles.active : ""}`}
-            onClick={() => setActiveTab(2)}
+            onClick={() => router.push("/services/financial-services")}
           >
             Financial Services
           </button>
         </div>
 
-        {/* Horizontal Carousel (remains for other tabs) */}
-        <div className={styles.scrollWrapper} ref={scrollRef}>
-          <div
-            className={styles.scrollContent}
-            style={{
-              display: "flex",
-              width: "300%",
-              transition: "transform 0.5s ease-in-out",
-            }}
-          >
-            {/* Only Digital Marketing & Financial Services remain here */}
-            <div className={styles.scrollItem} style={{ width: "33.3333%" }}>
-              <div className={styles.bentoGrid}>
-                <div className={`${styles.gridItem} ${styles.webMobile}`}>
-                  <h3>SEO & Content Marketing</h3>
-                  <p>Improve your search rankings and attract organic traffic.</p>
-                </div>
-                <div className={`${styles.gridItem} ${styles.cloudSolutions}`}>
-                  <h3>Social Media Campaigns</h3>
-                  <p>Engage with your audience across multiple platforms.</p>
-                </div>
-                <div className={`${styles.gridItem} ${styles.businessPlatforms}`}>
-                  <h3>Performance Analytics</h3>
-                  <p>Track campaign performance with real-time dashboards and insights.</p>
-                </div>
-                <div className={`${styles.gridItem} ${styles.aiAutomation}`}>
-                  <h3>Email Marketing</h3>
-                  <p>Personalized campaigns to nurture leads and drive conversions.</p>
-                </div>
-                <div className={`${styles.gridItem} ${styles.connectButton}`}>
-                  <button className={styles.ctaButton}>
-                    Let’s Grow 🚀 <span className={styles.arrow}>→</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Financial Services */}
-            <div className={styles.scrollItem} style={{ width: "33.3333%" }}>
-              <div className={styles.bentoGrid}>
-                <div className={`${styles.gridItem} ${styles.webMobile}`}>
-                  <h3>Financial Planning</h3>
-                  <p>Customized strategies to grow and manage wealth.</p>
-                </div>
-                <div className={`${styles.gridItem} ${styles.cloudSolutions}`}>
-                  <h3>Tax & Compliance</h3>
-                  <p>Stay compliant while maximizing efficiency.</p>
-                </div>
-                <div className={`${styles.gridItem} ${styles.businessPlatforms}`}>
-                  <h3>Investment Solutions</h3>
-                  <p>Smart investment strategies tailored for your goals.</p>
-                </div>
-                <div className={`${styles.gridItem} ${styles.aiAutomation}`}>
-                  <h3>Risk Management</h3>
-                  <p>Identify, assess, and minimize potential risks.</p>
-                </div>
-                <div className={`${styles.gridItem} ${styles.connectButton}`}>
-                  <button className={styles.ctaButton}>
-                    Secure Future 💼 <span className={styles.arrow}>→</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* ✅ Remove old Financial Services carousel since it has its own page */}
       </div>
     </section>
   );

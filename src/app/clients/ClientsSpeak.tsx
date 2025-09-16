@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./ClientsSpeak.module.css";
 import { FaQuoteLeft } from "react-icons/fa";
 
@@ -11,41 +11,27 @@ const testimonials = [
 ];
 
 export default function ClientsSpeak() {
-  const scrollRef1 = useRef<HTMLDivElement>(null);
-  const scrollRef2 = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
-    const speed = 1; // pixels per frame
-    let id1: number, id2: number;
+    const speed = 0.8; // pixels per frame
+    let id: number;
 
-    const loop1 = () => {
-      if (scrollRef1.current) {
-        scrollRef1.current.scrollLeft += speed;
-        if (scrollRef1.current.scrollLeft >= scrollRef1.current.scrollWidth / 2) {
-          scrollRef1.current.scrollLeft = 0;
+    const loop = () => {
+      if (!isPaused && scrollRef.current) {
+        scrollRef.current.scrollLeft += speed;
+        if (scrollRef.current.scrollLeft >= scrollRef.current.scrollWidth / 2) {
+          scrollRef.current.scrollLeft = 0;
         }
       }
-      id1 = requestAnimationFrame(loop1);
+      id = requestAnimationFrame(loop);
     };
 
-    const loop2 = () => {
-      if (scrollRef2.current) {
-        scrollRef2.current.scrollLeft -= speed;
-        if (scrollRef2.current.scrollLeft <= 0) {
-          scrollRef2.current.scrollLeft = scrollRef2.current.scrollWidth / 2;
-        }
-      }
-      id2 = requestAnimationFrame(loop2);
-    };
+    id = requestAnimationFrame(loop);
 
-    id1 = requestAnimationFrame(loop1);
-    id2 = requestAnimationFrame(loop2);
-
-    return () => {
-      cancelAnimationFrame(id1);
-      cancelAnimationFrame(id2);
-    };
-  }, []);
+    return () => cancelAnimationFrame(id);
+  }, [isPaused]);
 
   return (
     <section id="clients" className={styles.clientsSection}>
@@ -57,22 +43,13 @@ export default function ClientsSpeak() {
           businesses grow, innovate, and achieve long-term success.
         </p>
 
-        {/* Carousel 1 */}
-        <div className={styles.carouselWrapper} ref={scrollRef1}>
-          <div className={styles.carouselContent}>
-            {testimonials.concat(testimonials).map((t, idx) => (
-              <div key={idx} className={styles.card}>
-                <FaQuoteLeft className={styles.symbol} />
-                <p className={styles.quote}>{t.quote}</p>
-                <h3 className={styles.name}>{t.name}</h3>
-                <span className={styles.domain}>{t.domain}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Carousel 2 */}
-        <div className={styles.carouselWrapper} ref={scrollRef2}>
+        {/* Carousel */}
+        <div
+          className={styles.carouselWrapper}
+          ref={scrollRef}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           <div className={styles.carouselContent}>
             {testimonials.concat(testimonials).map((t, idx) => (
               <div key={idx} className={styles.card}>
