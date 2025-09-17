@@ -93,7 +93,7 @@ html {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -2px;
+  bottom: -1px;
   height: 1px;
   width: 100%;
   background-color: #4982fd;
@@ -150,9 +150,21 @@ html {
   transition: background 0.2s ease;
 }
 
-.dropdown-item:hover {
-  background: #f1f1f1;
+/* Dropdown Arrow Button */
+.dropdown-arrow {
+  background: transparent;   /* 🔥 makes background transparent */
+  border: none;              /* removes border */
+  font-size: 14px;           /* adjust size of arrow */
+  cursor: pointer;
+  margin-left: 4px;
+  color: inherit;            /* matches text color */
+  padding: 0;                /* removes extra spacing */
 }
+
+.dropdown-arrow:hover {
+  color: #0070f3; /* optional hover color */
+}
+
 
 /* Hamburger */
 .hamburger {

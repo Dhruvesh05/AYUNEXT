@@ -1,75 +1,114 @@
-.software-dev-page {
-  font-family: "Poppins", sans-serif;
-  padding: 0;
-  margin: 0;
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap");
+
+
+/* ================= SERVICE SECTION ================= */
+.servicePage {
+  width: 100%;
+  padding: clamp(10rem, 5vw, 6rem) 1rem;
+  background: #f9f9f9;
+  box-sizing: border-box;
 }
 
-.subpage-header {
-  background: #fff;
-  border-bottom: 1px solid #eee;
-}
+.titleWrapper {
+  font-family: "Space Grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  color: #191A23;
 
-.subpage-navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-}
+  /* Responsive font size */
+  font-size: clamp(1.8rem, 5vw, 5.6rem); 
+  /* min: ~29px, prefers scaling with 5% of viewport width, max: ~90px */
 
-.nav-logo img {
-  height: 40px;
-}
-
-.subpage-nav-menu {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-}
-
-.service-hero {
+  margin-bottom: clamp(1rem, 2vw, 2rem);
   text-align: center;
-  padding: 4rem 2rem;
-  background: linear-gradient(135deg, #e0e0e0, #f9f9f9);
+  line-height: 1.2;
 }
 
-.service-title {
-  font-size: 2.5rem;
+.serviceTitle {
+  font-size: clamp(1.8rem, 4vw, 3rem);
   font-weight: 700;
-  animation: fadeInUp 1s ease-out;
+  color: #191a23;
+  margin: 0;
+  line-height: 1.3;
 }
 
-.service-subtitle {
-  margin-top: 1rem;
-  font-size: 1.2rem;
-  color: #555;
+.serviceGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.service-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  padding: 3rem 2rem;
-}
-
-.service-box {
-  background: #fff;
-  padding: 2rem;
+/* ================= SERVICE BOX ================= */
+.serviceBox {
+  background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  transition: transform 0.3s;
+  padding: 2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  overflow: hidden;
+
+  /* smooth hover and click */
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, max-height 0.5s ease, padding 0.3s ease;
+  max-height: 80px; /* default collapsed height */
 }
 
-.service-box:hover {
-  transform: translateY(-8px);
+.serviceBox:hover {
+  background-color: #b9ff66;
+  transform: translateY(-4px);
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+/* Active/Clicked */
+.serviceBox.active {
+  background-color: #b9ff66;
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  border: 1px solid #191a23;
+
+  /* expand */
+  max-height: 500px; /* enough for description */
+  padding: 2rem;
+}
+
+.boxTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #191a23;
+}
+
+.boxDesc {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+
+  /* for smooth collapse/expand */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.serviceBox.active .boxDesc {
+  opacity: 1;
+  max-height: 200px; /* enough for text */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .serviceBox {
+    padding: 1.5rem;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .boxTitle {
+    font-size: 1.2rem;
+  }
+
+  .boxDesc {
+    font-size: 0.95rem;
   }
 }

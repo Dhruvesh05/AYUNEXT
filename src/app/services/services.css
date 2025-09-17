@@ -1,0 +1,23 @@
+.servicePage {
+  padding: 6rem 1rem;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.servicePage h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #191a23;
+}
+
+@media (max-width: 768px) {
+  .servicePage h1 {
+    font-size: 2rem;
+  }
+}
+
+
+

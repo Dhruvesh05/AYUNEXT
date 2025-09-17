@@ -2,14 +2,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./page.css";
 
-import Services from "./services/software-development/software-development";
+import Services from "./services/Services";
 import AboutUs from "./knowUs/AboutUs";
 import Approach from "./approach/Approach";
 import ClientsSpeak from "./clients/ClientsSpeak";
 import FeaturedClients from "./featuredclients/FeaturedClients";
 import Blogs from "./blog/Blogs";
-import Contact from "./contact/Contact"; // ✅ Import Contact component
-import Footer from "./footer/Footer"; // ✅ Import Footer component
+import Contact from "./contact/Contact";
+import Footer from "./footer/Footer";
 
 import { useRouter } from "next/navigation";
 
@@ -19,6 +19,17 @@ export default function HomePage() {
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLLIElement>(null);
   const router = useRouter();
+
+  // Smooth scrolling
+  const handleSmoothScroll = (e: React.MouseEvent, id: string) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      setMenuOpen(false);
+      setDropdownOpen(false);
+    }
+  };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -51,7 +62,7 @@ export default function HomePage() {
             <div className="nav-container">
               {/* Logo */}
               <div className="nav-logo">
-                <a href="#hero">
+                <a href="#hero" onClick={(e) => handleSmoothScroll(e, "hero")}>
                   <img src="/Ayunextlogo.png" alt="Ayunext Logo" />
                 </a>
               </div>
@@ -59,23 +70,38 @@ export default function HomePage() {
               {/* Nav Menu */}
               <ul className={`nav-menu ${menuOpen ? "active" : ""}`}>
                 <li>
-                  <a href="#hero" className="nav-link active">
+                  <a
+                    href="#hero"
+                    className="nav-link"
+                    onClick={(e) => handleSmoothScroll(e, "hero")}
+                  >
                     Home
                   </a>
                 </li>
                 <li>
-                  <a href="#about" className="nav-link">
+                  <a
+                    href="#about"
+                    className="nav-link"
+                    onClick={(e) => handleSmoothScroll(e, "about")}
+                  >
                     About Us
                   </a>
                 </li>
 
-                {/* Dropdown */}
-                <li className="dropdown" ref={dropdownRef}>
+                {/* Services + Dropdown */}
+                <li className="services-nav" ref={dropdownRef}>
+                  <a
+                    href="#services"
+                    className="nav-link"
+                    onClick={(e) => handleSmoothScroll(e, "services")}
+                  >
+                    Services
+                  </a>
                   <button
-                    className="nav-link dropdown-toggle"
+                    className="dropdown-arrow"
                     onClick={() => setDropdownOpen(!dropdownOpen)}
                   >
-                    Services <span className="arrow">▼</span>
+                    ▼
                   </button>
                   {dropdownOpen && (
                     <div className="dropdown-menu">
@@ -120,12 +146,20 @@ export default function HomePage() {
                 </li>
 
                 <li>
-                  <a href="#clients" className="nav-link">
+                  <a
+                    href="#clients"
+                    className="nav-link"
+                    onClick={(e) => handleSmoothScroll(e, "clients")}
+                  >
                     Resources
                   </a>
                 </li>
                 <li>
-                  <a href="#contact" className="nav-link">
+                  <a
+                    href="#contact"
+                    className="nav-link"
+                    onClick={(e) => handleSmoothScroll(e, "contact")}
+                  >
                     Contact
                   </a>
                 </li>
@@ -143,43 +177,6 @@ export default function HomePage() {
             </div>
           </nav>
         </header>
-
-        {/* Hero Content */}
-        <div className="hero-container">
-          <div className="hero-content">
-            <div className="hero-text">
-              <h1 className="hero-title">
-                <span className="word">Innovation.</span>
-                <br />
-                <span className="word">Finance.</span>
-                <br />
-                <span className="word">Growth</span>
-              </h1>
-              <p className="hero-description">
-                Ayunext Solutions delivers business-focused technology and
-                financial services to help companies grow, streamline operations,
-                and secure their financial future.
-              </p>
-              <button className="cta-button">Get Advice</button>
-            </div>
-
-            {/* Hero Stats Box */}
-            <div className="hero-stats-box">
-              <div className="stat-item">
-                <div className="stat-number">50+</div>
-                <div className="stat-label">Clients served</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-number">100+</div>
-                <div className="stat-label">Successful Projects</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-number">95%</div>
-                <div className="stat-label">Positive Feedback</div>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* Sections */}
@@ -188,8 +185,8 @@ export default function HomePage() {
       <Approach />
       <ClientsSpeak />
       <FeaturedClients />
-      <Blogs />  {/* Blogs Section */}
-      <Contact /> {/* ✅ Contact Section now appears below Blogs */}
+      <Blogs />
+      <Contact />
       <Footer />
     </div>
   );
