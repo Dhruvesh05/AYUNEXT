@@ -66,7 +66,7 @@ export default function ServicesLayout({
         <div className="nav-container">
           {/* Logo */}
           <div className="nav-logo">
-            <a href="/" onClick={(e) => handleSmoothScroll(e, "hero")}>
+            <a href="#" onClick={(e) => handleSmoothScroll(e, "hero")}>
               <img src="/Ayunextlogo.png" alt="Ayunext Logo" />
             </a>
           </div>
