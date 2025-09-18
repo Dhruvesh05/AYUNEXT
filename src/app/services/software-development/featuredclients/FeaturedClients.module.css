@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap");
+
+
+
+.section {
+  padding: clamp(3rem, 5vw, 6rem) 1rem;
+  background: #f9f9f9;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.heading {
+  font-family: "Space Grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  color: #191A23;
+
+  /* Responsive font size */
+  font-size: clamp(1.8rem, 5vw, 5.6rem); 
+  /* min: ~29px, prefers scaling with 5% of viewport width, max: ~90px */
+
+  margin-bottom: clamp(1rem, 2vw, 2rem);
+  text-align: center;
+  line-height: 1.2;
+}
+
+
+.heading::after {
+  /* content: ""; */
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #111827;
+  margin: 0.75rem auto 0;
+  border-radius: 2px;
+}
+
+/* ✅ Arc Layout */
+.arcWrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  background: #c7f65d;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.highlight {
+  background: #c7f65d;
+}
+
+.logo {
+  max-width: 60px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* ✅ Arc Effect – Symmetrical */
+.arcWrapper .card:nth-child(1),
+.arcWrapper .card:nth-child(8) {
+  transform: translateY(40px);
+}
+
+.arcWrapper .card:nth-child(2),
+.arcWrapper .card:nth-child(7) {
+  transform: translateY(20px);
+}
+
+.arcWrapper .card:nth-child(3),
+.arcWrapper .card:nth-child(6) {
+  transform: translateY(0px);
+}
+
+.arcWrapper .card:nth-child(4),
+.arcWrapper .card:nth-child(5) {
+  transform: translateY(-20px);
+}
+
+/* ✅ Subtitle & Description */
+.textBlock {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  color: #191A23;
+
+text-align: center;
+font-family: "Space Grotesk", sans-serif;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 124%; /* 24.8px */
+}
+
+/* ✅ Mobile: Flatten layout */
+@media (max-width: 768px) {
+  .arcWrapper {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .arcWrapper .card {
+    transform: none !important;
+  }
+}

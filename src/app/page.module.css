@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+.servicePage {
+  position: relative;
+  padding: 6rem 1rem;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Background image */
+.bgWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.bgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.15;
+}
+
+/* Content wrapper */
+.contentWrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Logo */
+.logo img {
+  max-width: 200px;
+  margin: 0 auto 2rem auto;
+  display: block;
+}
+
+/* Title */
+.title {
+  font-family: "Space Grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  color: #191A23;
+
+  font-size: clamp(1.8rem, 5vw, 5.6rem);
+  margin-bottom: clamp(1rem, 2vw, 2rem);
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Services Cards */
+.cards {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap; /* ensures wrapping */
+}
+
+/* Card */
+.card {
+  flex: 1 1 320px;
+  max-width: 350px;
+  min-width: 260px;
+  height: 420px;
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.cardTitle {
+  font-family: "Space Grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  color: #191A23;
+  margin-bottom: 3rem;
+}
+
+.icon {
+  font-size: 2.5rem;
+  color: #b9ff66;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  color: #000000;
+  flex-grow: 1;
+  margin-bottom: 2rem;
+}
+
+/* Circle Arrow Button */
+.arrowWrapper {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.arrowButton {
+  width: 45px;
+  height: 45px;
+  background: #b9ff66;
+  color: black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.arrowButton:hover {
+  background: black;
+  color: #b9ff66;
+  transform: rotate(-45deg);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .cards {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    padding-bottom: 5rem; /* space for arrow */
+  }
+
+  .arrowWrapper {
+    bottom: 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}

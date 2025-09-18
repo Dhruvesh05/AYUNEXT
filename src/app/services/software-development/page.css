@@ -1,24 +1,287 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap");
+/* ================== Fonts ================== */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* ================== Reset ================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* ================= SERVICE SECTION ================= */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #f9fafb;
+}
+
+/* ================== Navbar ================== */
+.navbar {
+  font-family: "Space Grotesk", sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  transition: all 0.3s ease;
+  padding: 0.8rem 0;
+}
+
+.navbar.scrolled {
+  background: #ffffff;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.nav-logo img {
+  width: 120px;
+  height: auto;
+  max-width: 25vw;
+}
+
+/* Nav Menu */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  padding: 0.6rem 1.5rem;
+  border-radius: 14px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 12px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.nav-menu li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #111827;
+  font-weight: 400;
+  position: relative;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 1px;
+  width: 100%;
+  background-color: #4982fd;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-link:hover {
+  color: #4982fd;
+}
+
+/* Dropdown */
+.dropdown-menu {
+  position: absolute;
+  top: 140%;
+  left: 0;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  z-index: 1000;
+}
+
+.dropdown-item {
+  padding: 0.6rem 1rem;
+  text-decoration: none;
+  color: #111827;
+  font-weight: 300;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.dropdown-arrow {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 4px;
+  color: inherit;
+  padding: 0;
+}
+
+.dropdown-arrow:hover {
+  color: #0070f3;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: #111827;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* ================== Hero Section ================== */
+.hero {
+  background: url('/HeroSection.svg') no-repeat center top;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 140px;
+}
+
+.hero-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-title {
+  font-family: "Space Grotesk";
+  font-size: clamp(2rem, 6vw, 6.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -2px;
+  background: radial-gradient(141.7% 108.82% at 50% 120.1%, #717171 0%, #000 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #374151;
+  line-height: 1.6;
+  max-width: 500px;
+  text-align: justify;
+}
+
+.cta-button {
+  border-radius: 18px;
+  background: radial-gradient(104% 100% at 40% 0%, #666 0%, #272727 68%);
+  min-width: 160px;
+  height: 50px;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: white;
+  color: black;
+  border: 1px solid black;
+}
+
+/* Right Info Boxes */
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
+
+.info-box {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 240px;
+  height: 130px;
+  text-align: left;
+}
+
+.info-box h3 {
+  color: #191A23;
+  font-family: "Space Grotesk";
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.info-box p {
+  color: #525252;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.info-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* ================== Service Section ================== */
 .servicePage {
   width: 100%;
-  padding: clamp(10rem, 5vw, 6rem) 1rem;
+  padding: clamp(6rem, 5vw, 10rem) 1rem;
   background: #f9f9f9;
-  box-sizing: border-box;
 }
 
 .titleWrapper {
   font-family: "Space Grotesk", sans-serif;
-  font-style: normal;
   font-weight: 600;
   color: #191A23;
-
-  /* Responsive font size */
-  font-size: clamp(1.8rem, 5vw, 5.6rem); 
-  /* min: ~29px, prefers scaling with 5% of viewport width, max: ~90px */
-
+  font-size: clamp(1.8rem, 5vw, 5.6rem);
   margin-bottom: clamp(1rem, 2vw, 2rem);
   text-align: center;
   line-height: 1.2;
@@ -41,7 +304,7 @@
   margin: 0 auto;
 }
 
-/* ================= SERVICE BOX ================= */
+/* Service Box */
 .serviceBox {
   background: #ffffff;
   border-radius: 12px;
@@ -50,10 +313,8 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   width: 100%;
   overflow: hidden;
-
-  /* smooth hover and click */
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, max-height 0.5s ease, padding 0.3s ease;
-  max-height: 80px; /* default collapsed height */
+  transition: all 0.3s ease;
+  max-height: 80px;
 }
 
 .serviceBox:hover {
@@ -61,16 +322,12 @@
   transform: translateY(-4px);
 }
 
-/* Active/Clicked */
 .serviceBox.active {
   background-color: #b9ff66;
   transform: scale(1.03);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
   border: 1px solid #191a23;
-
-  /* expand */
-  max-height: 500px; /* enough for description */
-  padding: 2rem;
+  max-height: 500px;
 }
 
 .boxTitle {
@@ -85,8 +342,6 @@
   color: #333;
   line-height: 1.6;
   margin-top: 0.5rem;
-
-  /* for smooth collapse/expand */
   opacity: 0;
   transition: opacity 0.3s ease;
   max-height: 0;
@@ -95,10 +350,49 @@
 
 .serviceBox.active .boxDesc {
   opacity: 1;
-  max-height: 200px; /* enough for text */
+  max-height: 200px;
 }
 
-/* Responsive */
+/* ================== Responsive ================== */
+@media (max-width: 1000px) {
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-left {
+    align-items: center;
+  }
+
+  .hero-right {
+    margin-top: 2rem;
+    align-items: center;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+}
+
 @media (max-width: 768px) {
   .serviceBox {
     padding: 1.5rem;
@@ -110,5 +404,29 @@
 
   .boxDesc {
     font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-logo img {
+    width: 90px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .info-box {
+    width: 90%;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .info-box h3 {
+    font-size: 28px;
+  }
+
+  .info-box p {
+    font-size: 14px;
   }
 }
