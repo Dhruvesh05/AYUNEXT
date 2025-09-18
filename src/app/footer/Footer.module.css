@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap");
 
-
 .footer {
   background: #191a23;
   color: #fff;
@@ -49,6 +48,36 @@
   background: #a0e048;
   color: black;
   border-color: #a0e048;
+}
+
+/* Social Icons */
+.socialIcons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.socialIcons a {
+  font-size: 1.6rem;
+  color: #fff;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.socialIcons a:hover {
+  transform: scale(1.2);
+}
+
+/* Brand hover colors */
+.socialIcons a:nth-child(1):hover {
+  color: #0077b5; /* LinkedIn Blue */
+}
+
+.socialIcons a:nth-child(2):hover {
+  color: #1877f2; /* Facebook Blue */
+}
+
+.socialIcons a:nth-child(3):hover {
+  color: #e1306c; /* Instagram Pink */
 }
 
 /* Links Sections */
@@ -116,11 +145,20 @@
   .logo {
     width: 120px;
   }
+
+  .socialIcons {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 576px) {
   .backToTop {
     width: 100%;
     text-align: center;
+  }
+
+  .socialIcons {
+    gap: 20px;
+    font-size: 1.8rem;
   }
 }

@@ -51,8 +51,10 @@ export default function Blogs() {
     <section className={styles.section} id="blogs">
       <div className={styles.container}>
         <h2 className={styles.heading}>Blogs & Insights</h2>
-        <p className={styles.subtitle}>
-          Stay updated with the latest insights in software, marketing, and financial services. Our blog brings you expert perspectives, industry trends, and practical tips to help your business grow.
+        <p className={styles.description}>
+          At Ayunext, we believe our true success is measured by the trust and satisfaction of our clients.
+          Every partnership is a journey, and these testimonials reflect how our solutions have helped
+          businesses grow, innovate, and achieve long-term success.
         </p>
 
         <div className={styles.grid}>

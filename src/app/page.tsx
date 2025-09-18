@@ -177,6 +177,39 @@ export default function HomePage() {
             </div>
           </nav>
         </header>
+
+        {/* Hero Content */}
+        <div className="hero-container">
+          {/* Left Side */}
+          <div className="hero-left">
+            <h1 className="hero-title">Innovation.</h1> 
+            <h1 className="hero-title">Finance. Growth.</h1>
+            <p className="hero-description">
+              Ayunext Solutions delivers business-focused technology and
+              financial services to help companies grow, streamline operations,
+              and secure their financial future. Our mission is to combine
+              innovation with practical solutions that drive measurable results
+              for our clients.
+            </p>
+            <button className="cta-button">Get Advice</button>
+          </div>
+
+          {/* Right Side Boxes */}
+          <div className="hero-right">
+            <div className="info-box">
+              <h3>50+</h3>
+              <p>Clients served</p>
+            </div>
+            <div className="info-box">
+              <h3>100+</h3>
+              <p>Successful Projects</p>
+            </div>
+            <div className="info-box">
+              <h3>95 %</h3>
+              <p>Positive Feedback</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Sections */}

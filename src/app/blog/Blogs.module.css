@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Raleway:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap');
 .section {
   padding: 60px 15px; /* reduced from 80px */
   background-color: #f9f9f9;
@@ -26,12 +26,21 @@
 }
 
 .subtitle {
+  font-family: "DM Sans", sans-serif;
   font-size: 1rem; /* reduced */
-  color: #555;
+  color: #000000;
   margin: 0 auto 30px auto;
   max-width: 700px;
   text-align: justify;
   line-height: 1.5;
+}
+
+.description {
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  color: #444;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
 }
 
 .grid {
@@ -106,26 +115,29 @@
 
 /* Text effects */
 .meta {
+  font-family: "DM Sans", sans-serif;
   font-size: 0.8rem; /* reduced */
-  color: #666;
+  color: #777;
   margin-bottom: 8px;
   opacity: 0.8;
 }
 
 .title {
+  font-family: "Space Grotesk", sans-serif;
   font-size: 1.1rem; /* reduced */
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 10px;
   color: #222;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .card:hover .title {
-  color: #16c79a;
+  color: #B9FF66;
   transform: translateX(3px);
 }
 
 .excerpt {
+  font-family: "DM Sans", sans-serif;
   font-size: 0.9rem; /* reduced */
   color: #555;
   margin-bottom: 12px;
@@ -144,22 +156,23 @@
 }
 
 .tag {
+  font-family: "DM Sans", sans-serif;
   padding: 4px 10px; /* smaller */
-  border-radius: 16px;
+  border-radius: 10px;
   font-size: 0.75rem;
-  font-weight: 600;
-  color: #fff;
+  font-weight: 400;
+  color: black;
 }
 
 /* Tag colors */
 .software {
-  background: #16c79a;
+  background: #B9FF66
 }
 .finance {
-  background: #4caf50;
+  background: #B9FF66;
 }
 .marketing {
-  background: #ff9800;
+  background: #B9FF66;
 }
 
 /* Responsive */
