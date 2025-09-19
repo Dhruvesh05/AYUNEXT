@@ -3,10 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import "./page.css";
 
-// ✅ Corrected imports after moving files
-// import Services from "./services";
 import AboutUs from "./knowUs/AboutUs";
-// import Approach from "./approach/Approach";
 import ClientsSpeak from "./clients/ClientsSpeak";
 import FeaturedClients from "./featuredclients/FeaturedClients";
 import Blogs from "./blog/Blogs";
@@ -14,11 +11,9 @@ import Contact from "./contact/Contact";
 import Footer from "./footer/Footer";
 
 export default function SoftwareDevelopment() {
-  const [activeBox, setActiveBox] = useState<number | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
   const dropdownRef = useRef<HTMLLIElement>(null);
   const router = useRouter();
 
@@ -45,14 +40,14 @@ export default function SoftwareDevelopment() {
     },
   ];
 
-  // navbar scroll effect
+  // Navbar scroll effect
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // close dropdown if clicked outside
+  // Close dropdown if clicked outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -63,11 +58,7 @@ export default function SoftwareDevelopment() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const toggleBox = (index: number) => {
-    setActiveBox(activeBox === index ? null : index);
-  };
-
-  // smooth scroll helper
+  // Smooth scroll helper
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     const element = document.getElementById(id);
@@ -84,7 +75,7 @@ export default function SoftwareDevelopment() {
         <div className="nav-container">
           {/* Logo */}
           <div className="nav-logo">
-            <a href="#hero" onClick={(e) => handleSmoothScroll(e, "hero")}>
+            <a href="/page" onClick={(e) => handleSmoothScroll(e, "hero")}>
               <img src="/Ayunextlogo.png" alt="Ayunext Logo" />
             </a>
           </div>
@@ -93,13 +84,17 @@ export default function SoftwareDevelopment() {
           <ul className={`nav-menu ${menuOpen ? "active" : ""}`}>
             <li>
               <a
-                href="#hero"
+                href="/page"
                 className="nav-link"
-                onClick={(e) => handleSmoothScroll(e, "hero")}
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.push("/"); // Navigate to HomePage
+                }}
               >
                 Home
               </a>
             </li>
+
             <li>
               <a
                 href="#about"
@@ -113,12 +108,12 @@ export default function SoftwareDevelopment() {
             {/* Services + Dropdown */}
             <li className="services-nav" ref={dropdownRef}>
               <a className="nav-link">
-              <button
-                className="dropdown-arrow"
-                onClick={() => setDropdownOpen(!dropdownOpen)}
-              >
-                Services ▼
-              </button>
+                <button
+                  className="dropdown-arrow"
+                  onClick={() => setDropdownOpen(!dropdownOpen)}
+                >
+                  Services ▼
+                </button>
               </a>
               {dropdownOpen && (
                 <div className="dropdown-menu">
@@ -139,7 +134,7 @@ export default function SoftwareDevelopment() {
                     className="dropdown-item"
                     onClick={(e) => {
                       e.preventDefault();
-                      router.push("/services/digital-marketing");
+                      router.push("#digital-marketing");
                       setDropdownOpen(false);
                       setMenuOpen(false);
                     }}
@@ -202,13 +197,9 @@ export default function SoftwareDevelopment() {
 
         <div className="serviceGrid">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className={`serviceBox ${activeBox === index ? "active" : ""}`}
-              onClick={() => toggleBox(index)}
-            >
+            <div key={index} className="serviceBox" tabIndex={0}>
               <h2 className="boxTitle">{service.title}</h2>
-              {activeBox === index && <p className="boxDesc">{service.desc}</p>}
+              <p className="boxDesc">{service.desc}</p>
             </div>
           ))}
         </div>
@@ -216,7 +207,6 @@ export default function SoftwareDevelopment() {
 
       {/* ================= OTHER SECTIONS ================= */}
       <AboutUs />
-      {/* <Approach /> */}
       <ClientsSpeak />
       <FeaturedClients />
       <Blogs />
