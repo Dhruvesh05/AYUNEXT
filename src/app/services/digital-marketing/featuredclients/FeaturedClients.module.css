@@ -14,9 +14,8 @@
 }
 
 .heading {
-  font-family: "Space Grotesk", sans-serif;
-  font-style: normal;
-  font-weight: 600;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 150;
   color: #191A23;
 
   /* Responsive font size */
@@ -51,7 +50,7 @@
 
 .card {
   background: #fff;
-  border-radius: 12px;
+  /* border-radius: 12px; */
   padding: 1rem;
   width: 120px;
   height: 120px;
@@ -61,6 +60,8 @@
   align-items: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 200;
 }
 
 .card:hover {
@@ -81,7 +82,7 @@
 
 .name {
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 300;
   color: #1f2937;
 }
 
@@ -114,7 +115,7 @@
 
 .subtitle {
   font-size: 1.3rem;
-  font-weight: 600;
+  font-weight: 350;
   color: #111827;
   margin-bottom: 0.5rem;
 }
@@ -123,10 +124,10 @@
   color: #191A23;
 
 text-align: center;
-font-family: "Space Grotesk", sans-serif;
+font-family: "DM Sans", sans-serif;
+  font-weight: 200;
 font-size: 20px;
 font-style: normal;
-font-weight: 400;
 line-height: 124%; /* 24.8px */
 }
 

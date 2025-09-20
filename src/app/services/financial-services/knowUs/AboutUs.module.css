@@ -16,9 +16,9 @@
 /* Main Section Title */
 .title {
   text-align: center;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-size:  90.993px;
-  font-weight: 700;
+  font-weight: 150;
   color: #191a23;
   margin-bottom: 20px;
   position: relative;
@@ -44,9 +44,9 @@
 /* Subheadings with bullet + underline */
 .subHeading {
   color: #191a23;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 54.161px;
-  font-weight: 700;
+  font-weight: 150;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -68,8 +68,10 @@ background: #B9FF66;
 /* Paragraph */
 .text p {
   font-size: 1rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 250;
   line-height: 1.6;
-  color: #555;
+  color: #000000;
   text-align: justify;
 }
 

@@ -12,9 +12,8 @@
 }
 
 .title {
-  font-family: "Space Grotesk", sans-serif;
-  font-style: normal;
-  font-weight: 600;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 150;
   color: #191A23;
 
   /* Responsive font size */
@@ -28,7 +27,9 @@
 
 .description {
   font-size: clamp(1rem, 2.5vw, 1.125rem);
-  color: #444;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 250;
+  color: #000000;
   line-height: 1.6;
   text-align: justify;
   margin-bottom: clamp(2rem, 4vw, 3rem);
@@ -46,8 +47,9 @@
 .carouselContent {
   display: flex;
   gap: clamp(1rem, 2vw, 2rem);
-  width: max-content;
+  width: 500px  ;
   font-family: "DM Sans", sans-serif;
+  font-weight: 300;
   padding: 1rem 0;
 }
 
@@ -55,12 +57,12 @@
 .card {
   background: #fff;
   min-width: 240px;
-  max-width: 280px;
+  max-width: 500px;
   padding: 1.25rem 1rem;
-  border-radius: 16px;
+  /* border-radius: 16px; */
   flex-shrink: 0;
   transition: transform 0.3s ease, background 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
   display: flex;
   flex-direction: column;
@@ -81,14 +83,17 @@
 
 .quote {
   font-size: 1rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
   font-style: italic;
-  color: #333;
+  color: #000000;
   margin-bottom: 0.75rem;
   flex-grow: 1;
 }
 
 .name {
-  font-weight: 600;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 350;;
   color: #111827;
   margin-bottom: 0.25rem;
 }

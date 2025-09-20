@@ -109,11 +109,12 @@ export default function SoftwareDevelopment() {
             <li className="services-nav" ref={dropdownRef}>
               <a className="nav-link">
                 <button
-                  className="dropdown-arrow"
-                  onClick={() => setDropdownOpen(!dropdownOpen)}
-                >
-                  Services ▼
-                </button>
+  className="dropdown-arrow"
+  onClick={() => setDropdownOpen(!dropdownOpen)}
+>
+  Services ▼
+</button>
+
               </a>
               {dropdownOpen && (
                 <div className="dropdown-menu">

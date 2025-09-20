@@ -11,9 +11,8 @@
 }
 
 .heading {
-  font-family: "Space Grotesk", sans-serif;
-  font-style: normal;
-  font-weight: 600;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 150;
   color: #191A23;
 
   /* Responsive font size */
@@ -27,6 +26,7 @@
 
 .subtitle {
   font-family: "DM Sans", sans-serif;
+  font-weight: 300;
   font-size: 1rem; /* reduced */
   color: #000000;
   margin: 0 auto 30px auto;
@@ -36,11 +36,13 @@
 }
 
 .description {
+  font-family: "DM Sans", sans-serif;
   font-size: clamp(1rem, 2.5vw, 1.125rem);
-  color: #444;
+  color: #000000;
   line-height: 1.6;
   text-align: justify;
   margin-bottom: clamp(2rem, 4vw, 3rem);
+  font-weight: 250;
 }
 
 .grid {
@@ -81,7 +83,6 @@
 /* Card */
 .card {
   background: #fff;
-  border-radius: 10px; /* smaller radius */
   overflow: hidden;
   box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.07);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -116,18 +117,19 @@
 /* Text effects */
 .meta {
   font-family: "DM Sans", sans-serif;
+  font-weight: 300;
   font-size: 0.8rem; /* reduced */
-  color: #777;
+  color: #000000;
   margin-bottom: 8px;
   opacity: 0.8;
 }
 
 .title {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 1.1rem; /* reduced */
-  font-weight: 500;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
+  font-size: 1.1 rem;
   margin-bottom: 10px;
-  color: #222;
+  color: #000000;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
@@ -137,9 +139,10 @@
 }
 
 .excerpt {
-  font-family: "DM Sans", sans-serif;
+font-family: "DM Sans", sans-serif;
+  font-weight: 300;
   font-size: 0.9rem; /* reduced */
-  color: #555;
+  color: #000000;
   margin-bottom: 12px;
   line-height: 1.4;
   transition: opacity 0.3s ease;
@@ -158,22 +161,31 @@
 .tag {
   font-family: "DM Sans", sans-serif;
   padding: 4px 10px; /* smaller */
-  border-radius: 10px;
   font-size: 0.75rem;
-  font-weight: 400;
+  font-weight: 300;
   color: black;
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  background: #000000;
+  color: #fff;
+  cursor: pointer;
 }
 
 /* Tag colors */
 .software {
-  background: #B9FF66
+  background: transparent;
+  border: 1px solid #000000;
 }
+
 .finance {
-  background: #B9FF66;
+  background: transparent;
+  border: 1px solid #000000;
 }
 .marketing {
-  background: #B9FF66;
-}
+  background: transparent;
+  border: 1px solid #000000;}
 
 /* Responsive */
 @media (max-width: 992px) {
