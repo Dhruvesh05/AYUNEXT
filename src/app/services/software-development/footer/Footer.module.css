@@ -4,7 +4,8 @@
   background: #191a23;
   color: #fff;
   padding: 60px 20px 30px;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 200;
 }
 
 .container {
@@ -28,8 +29,11 @@
 
 .description {
   font-size: 0.95rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 200;
   line-height: 1.6;
   margin-bottom: 20px;
+  text-align: justify;
 }
 
 .backToTop {
@@ -37,7 +41,7 @@
   color: white;
   padding: 10px 20px;
   border: 1px solid white;
-  border-radius: 12px;
+  /* border-radius: 12px; */
   cursor: pointer;
   font-family: "Space Grotesk", sans-serif;
   font-weight: 300;
@@ -88,6 +92,8 @@
 
 .linksSection h4,
 .servicesSection h4 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 250;
   font-size: 1.2rem;
   margin-bottom: 15px;
   color: #b9ff66;

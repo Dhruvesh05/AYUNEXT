@@ -11,9 +11,8 @@
 }
 
 .heading {
-  font-family: "Space Grotesk", sans-serif;
-  font-style: normal;
-  font-weight: 600;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 200;
   color: #191A23;
 
   /* Responsive font size */
@@ -27,7 +26,7 @@
 
 .formWrapper {
   background: #fff;
-  border-radius: 18px;
+  /* border-radius: 18px; */
   overflow: hidden;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
 }
@@ -38,7 +37,7 @@
   padding: 40px 30px;
   text-align: center;
   position: relative;
-  border-radius: 18px 18px 0 0;
+  /* border-radius: 18px 18px 0 0; */
 }
 
 .banner::before,
@@ -62,30 +61,36 @@
 
 .bannerTitle {
   font-size: 2rem;
-  font-weight: 700;
-  color: #191a23;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 200;
+  color: #000000;
   margin-bottom: 10px;
 }
 
 .bannerText {
-  font-size: 1rem;
-  color: #333;
+  font-size: 0.9rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 250;
+  color: #000000;
   margin-bottom: 20px;
 }
 
 .bannerButton {
-  background: #191a23;
+  background: #000000;
   color: #fff;
   border: none;
   padding: 10px 22px;
-  border-radius: 25px;
+  /* border-radius: 25px; */
   font-size: 0.95rem;
   cursor: pointer;
   transition: 0.3s ease;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 200;
 }
 
 .bannerButton:hover {
-  background: #333;
+  background: #ffffff;
+  color: black;
 }
 
 /* Form */
@@ -109,16 +114,17 @@
   flex: 1;
   padding: 12px;
   border: none;
-  border-bottom: 2px solid #ccc;
+  border-bottom: 1px solid #ccc;
   outline: none;
   font-size: 0.95rem;
-  font-family: "Space Grotesk", sans-serif;
+font-family: "DM Sans", sans-serif;
+  font-weight: 300;  
   background: transparent;
 }
 
 .formTextarea {
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border: 1px solid #999;
+  /* border-radius: 8px; */
   resize: none;
 }
 
@@ -139,8 +145,10 @@
   background: transparent;
   border: 1.5px solid #191a23;
   padding: 10px 28px;
-  border-radius: 25px;
+  /* border-radius: 25px; */
   font-size: 1rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 200;
   cursor: pointer;
   margin: 0 auto;
   transition: 0.3s ease;
