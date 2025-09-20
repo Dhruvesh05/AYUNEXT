@@ -54,7 +54,7 @@ export default function HomePage() {
               <div className={styles.icon}>{service.icon}</div>
               <p className={styles.description}>{service.desc}</p>
 
-              {/* Circle arrow button */}
+             
               <div className={styles.arrowWrapper}>
                 <span className={styles.arrowButton}>→</span>
               </div>
