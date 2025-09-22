@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import "./page.css";
 
-import AboutUs from "./knowUs/AboutUs";
+import HeroSection from "./hero/hero";
 import ClientsSpeak from "./clients/ClientsSpeak";
 import FeaturedClients from "./featuredclients/FeaturedClients";
 import Blogs from "./blog/Blogs";
@@ -16,29 +16,6 @@ export default function SoftwareDevelopment() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLLIElement>(null);
   const router = useRouter();
-
-  const services = [
-    {
-      title: "Web Development",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel elit ut turpis auctor vehicula.",
-    },
-    {
-      title: "Mobile Applications",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel elit ut turpis auctor vehicula.",
-    },
-    {
-      title: "UI/UX Design",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel elit ut turpis auctor vehicula.",
-    },
-    {
-      title: "Cloud Solutions",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel elit ut turpis auctor vehicula.",
-    },
-    {
-      title: "Maintenance & Support",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel elit ut turpis auctor vehicula.",
-    },
-  ];
 
   // Navbar scroll effect
   useEffect(() => {
@@ -109,12 +86,11 @@ export default function SoftwareDevelopment() {
             <li className="services-nav" ref={dropdownRef}>
               <a className="nav-link">
                 <button
-  className="dropdown-arrow"
-  onClick={() => setDropdownOpen(!dropdownOpen)}
->
-  Services ▼
-</button>
-
+                  className="dropdown-arrow"
+                  onClick={() => setDropdownOpen(!dropdownOpen)}
+                >
+                  Services ▼
+                </button>
               </a>
               {dropdownOpen && (
                 <div className="dropdown-menu">
@@ -123,7 +99,7 @@ export default function SoftwareDevelopment() {
                     className="dropdown-item"
                     onClick={(e) => {
                       e.preventDefault();
-                      router.push("#software-development");
+                      router.push("/services/software-development");
                       setDropdownOpen(false);
                       setMenuOpen(false);
                     }}
@@ -190,29 +166,10 @@ export default function SoftwareDevelopment() {
         </div>
       </nav>
 
-      {/* ================= SERVICES ================= */}
-      <section id="services" className="servicePage">
-        <div className="titleWrapper">
-          <h1 className="serviceTitle">Software Development</h1>
-        </div>
-
-        <div className="serviceGrid">
-          {services.map((service, index) => (
-            <div key={index} className="serviceBox" tabIndex={0}>
-              <h2 className="boxTitle">{service.title}</h2>
-              <p className="boxDesc">{service.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
+     
       {/* ================= OTHER SECTIONS ================= */}
-      <AboutUs />
-      <ClientsSpeak />
-      <FeaturedClients />
-      <Blogs />
-      <Contact />
-      <Footer />
+      <HeroSection/>
+      
     </>
   );
 }

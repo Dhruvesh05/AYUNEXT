@@ -22,7 +22,8 @@ body {
 
 /* ================== Navbar ================== */
 .navbar {
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 100;
   position: fixed;
   top: 0;
   left: 0;
@@ -70,6 +71,8 @@ body {
   background: white;
   border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-family: "DM Sans", sans-serif;
+  font-weight: 150;
 }
 
 .nav-menu li {
@@ -111,11 +114,11 @@ body {
 /* Dropdown */
 .dropdown-menu {
   position: absolute;
-  top: 140%;
-  left: 0;
+  top: 120%;
+  left: 150;
   background: white;
   /* border-radius: 10px; */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   padding: 0.5rem 0;
   display: flex;
   flex-direction: column;
@@ -141,7 +144,7 @@ body {
   color: inherit;
   padding: 0;
 }
-
+  
 .dropdown-arrow:hover {
   color: #0070f3;
 }
