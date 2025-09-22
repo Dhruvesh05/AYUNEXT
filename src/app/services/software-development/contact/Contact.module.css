@@ -33,7 +33,7 @@
 
 /* Green Banner */
 .banner {
-  background: #b9ff66;
+  background: #1A73E8;
   padding: 40px 30px;
   text-align: center;
   position: relative;
@@ -47,7 +47,7 @@
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  background: radial-gradient(circle, #ffffff 40%, #a8f24c 70%);
+  background:  #1A73E8;
   top: 20px;
 }
 

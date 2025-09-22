@@ -4,11 +4,6 @@ import { useRouter } from "next/navigation";
 import "./page.css";
 
 import HeroSection from "./hero/hero";
-import ClientsSpeak from "./clients/ClientsSpeak";
-import FeaturedClients from "./featuredclients/FeaturedClients";
-import Blogs from "./blog/Blogs";
-import Contact from "./contact/Contact";
-import Footer from "./footer/Footer";
 
 export default function SoftwareDevelopment() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -65,7 +60,7 @@ export default function SoftwareDevelopment() {
                 className="nav-link"
                 onClick={(e) => {
                   e.preventDefault();
-                  router.push("/"); // Navigate to HomePage
+                  router.push("/hero/hero"); // Navigate to HomePage
                 }}
               >
                 Home
@@ -74,9 +69,9 @@ export default function SoftwareDevelopment() {
 
             <li>
               <a
-                href="#about"
+                href="#about-us"
                 className="nav-link"
-                onClick={(e) => handleSmoothScroll(e, "about")}
+                onClick={(e) => handleSmoothScroll(e, "about-us")}
               >
                 About Us
               </a>
