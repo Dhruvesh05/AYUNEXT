@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+
 html {
   scroll-behavior: smooth;
 }
@@ -43,13 +49,16 @@ html {
 }
 
 .hero-title {
+  font-family: "DM Sans", sans-serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 500;
+  font-weight: 200;
   color: #fff;
   margin-bottom: 1.5rem;
 }
 
 .hero-description {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
   font-size: 1.1rem;
   color: #fff;
   line-height: 1.6;
@@ -79,98 +88,185 @@ html {
 }
 
 /* ================= New Info Sections ================= */
-.info-section {
-  padding: 5rem 2rem;
-  background: #f9f9f9;
-}
-
-.info-section.reverse {
-  background: #f9f9f9;
-}
-
-.info-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1500px;
-  margin: 0 auto;
-  gap: 2rem;
-  position: relative;
-}
-
-.info-section.reverse .info-container {
-  flex-direction: row-reverse;
-}
-
-.info-box-wrapper {
-  flex: 1;
-  position: relative;
-  z-index: 2;
-}
-
-.info-box-red {
-  background: #ffffff;
-  padding: 2rem;
-  color: #000000;
-  max-width: 1500px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  position: relative;
-  transition: transform 0.3s ease;
-}
-
-.info-section:not(.reverse) .info-box-red {
-  transform: translateX(220px);
-}
-
-.info-section.reverse .info-box-red {
-  transform: translateX(-220px);
-}
-
-.info-box-red h2 {
-  color: #6c63ff;
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.info-box-red p {
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.info-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.info-image img {
+/* ================= Bento Grid Info Section ================= */
+.info-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   width: 100%;
-  max-width: 400px;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+  max-width: 1200px;
+  margin: 4rem auto;   /* top & bottom spacing */
+  padding: 0;
+  gap: 0;
+  aspect-ratio: 3 / 2;
+}
+
+/* Card setup */
+.info-bento-card {
   position: relative;
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-bento-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   z-index: 1;
 }
 
-.info-image img:hover {
-  transform: scale(1.05);
+/* Overlay container with bottom-to-top fade animation */
+.info-bento-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  pointer-events: none; /* prevents overlay blocking hover */
+  
+  /* Dark overlay starts from bottom, hidden */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%);
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* On hover → slide overlay from bottom to top */
+.info-bento-card:hover .info-bento-overlay {
+  transform: translateY(0);
+}
+
+/* Title - always visible, no animations at all */
+.info-bento-overlay h2 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
+  font-size: 1.3rem;
+  /* font-weight: 600; */
+  margin-bottom: 0.6rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  /* No animations - completely static */
+}
+
+/* Paragraph initially hidden */
+.info-bento-overlay p {
+  transform: translateY(30px);
+  opacity: 0; /* completely hidden initially */
+  font-family: "DM Sans", sans-serif;
+  font-weight: 200;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-width: 90%;
+  color: #ffffff;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.1s; /* slight delay after overlay fade */
+}
+
+/* Paragraph appears only on hover */
+.info-bento-card:hover .info-bento-overlay p {
+  transform: translateY(0);
+  opacity: 1; /* fade + slide on hover */
+}
+
+/* Optional: subtle border animation */
+.info-bento-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.info-bento-card:hover::before {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Enhanced fade effect with gradient overlay option */
+.info-bento-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* .info-bento-card:hover .info-bento-overlay::after {
+  opacity: 1;
+} */
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .info-bento-grid {
+    max-width: 800px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    aspect-ratio: 2 / 3;
+  }
+  
+  .info-bento-overlay h2 {
+    font-size: 1.2rem; /* always visible */
+  }
+  
+  .info-bento-overlay p {
+    font-size: 0.85rem;
+  }
+  
+  /* Faster fade on medium screens */
+  .info-bento-overlay {
+    transition: background 0.3s ease;
+  }
+}
+
+@media (max-width: 600px) {
+  .info-bento-grid {
+    max-width: 500px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    aspect-ratio: auto;
+  }
+  
+  .info-bento-overlay {
+    transition: background 0.3s ease;
+  }
+  
+  .info-bento-overlay h2 {
+    font-size: 1.1rem; /* always visible */
+  }
+  
+  .info-bento-overlay p {
+    transition: all 0.5s ease;
+    font-size: 0.8rem;
+    transition-delay: 0.05s; /* faster on mobile */
+  }
+}
 /* ================= New Full Feature Section ================= */
 .feature-section {
   padding: 5rem 2rem;
   background: #1A73E8;
 }
-
 .feature-heading {
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-align: left;
-  margin-bottom: 2rem;
-  color: #ffffff;
+  position: absolute;       /* position on top of image */
+  top: 2rem;                /* distance from top */
+  left: 2rem;               /* distance from left */
+  font-family: "DM Sans", sans-serif;
+  font-weight: 600;         /* heavier weight */
+  font-size: 3rem;          /* adjust size to fit image */
+  color: #1A73E8;
+  z-index: 2;               /* above image */
+  margin: 0;                /* remove default margin */
 }
 
 .feature-image-container {
@@ -184,9 +280,13 @@ html {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
+
 .feature-blur-box {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 250;
   position: absolute;
   top: 50%;
   right: 5%;
@@ -200,12 +300,15 @@ html {
 }
 
 .feature-blur-box h3 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
   font-size: 1.8rem;
   margin-bottom: 1rem;
   color: #6c63ff;
 }
 
 .feature-blur-box p {
+  
   font-size: 1rem;
   line-height: 1.6;
   color: #ffffff;
@@ -237,13 +340,16 @@ html {
 }
 
 .feature-card h4 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
   font-size: 1.3rem;
-  font-weight: 600;
   margin-bottom: 0.5rem;
   color: #ffffff;
 }
 
 .feature-card p {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
   font-size: 1rem;
   color: #ffffff;
   line-height: 1.5;

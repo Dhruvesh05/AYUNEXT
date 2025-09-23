@@ -66,12 +66,12 @@
 
 .card:hover {
   transform: translateY(-6px);
-  background: #c7f65d;
+  background: #6c63ff;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
 .highlight {
-  background: #c7f65d;
+  background: #6c63ff;
 }
 
 .logo {

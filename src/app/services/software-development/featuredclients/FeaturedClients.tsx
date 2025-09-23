@@ -11,6 +11,7 @@ const clients = [
   { name: "Hitachi", logo: "/logos/hitachi.svg" },
   { name: "GE", logo: "/logos/ge.svg" },
   { name: "Verizon", logo: "/logos/verizon.svg" },
+  
 ];
 
 export default function FeaturedClients() {

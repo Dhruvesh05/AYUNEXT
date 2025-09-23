@@ -4,39 +4,47 @@ import './hero.css';
 // Import Contact and Footer components
 import Contact from '../contact/Contact';
 import Footer from '../footer/Footer';
+import FeaturedClients from '../featuredclients/FeaturedClients';
 
 const HeroSection = () => {
   const infoBoxes = [
-    {
-      heading: 'Retirement Planning',
-      description:
-        'Secure your golden years with a well-structured retirement plan. From estimating future needs to designing sustainable income streams, we ensure your retirement is financially comfortable and stress-free.',
-      imgSrc: '/HeroSection.svg',
-    },
-    {
-      heading: 'Tax Saving Solutions',
-      description:
-        'Minimize your tax burden with smart, legal strategies. We guide you through investment options and planning techniques that reduce liabilities and maximize your savings.',
-      imgSrc: '/HeroSection.svg',
-    },
-    {
-      heading: 'Goal-Based Financial Planning',
-      description:
-        'Financial planning is not one-size-fits-all. We help you define your objectives, whether it’s buying a home, funding education, or planning for a dream vacation, & create actionable strategies to reach them efficiently.',
-      imgSrc: '/HeroSection.svg',
-    },
-    {
-      heading: 'Mutual Fund Investments',
-      description:
-        'Invest in a diversified range of mutual funds managed by experienced professionals. Our approach balances risk and reward, helping you grow your wealth steadily while keeping your financial goals in focus.',
-      imgSrc: '/HeroSection.svg',
-    },
     {
       heading: 'Portfolio Management',
       description:
         'Build a strong financial future with a carefully managed portfolio. Our experts continuously monitor your investments to ensure optimal growth, stability, and alignment with your risk profile.',
       imgSrc: '/HeroSection.svg',
     },
+    {
+      heading: 'Retirement Planning',
+      description:
+        'Secure your golden years with a well-structured retirement plan. From estimating future needs to designing sustainable income streams, we ensure your retirement is financially comfortable and stress-free.',
+      imgSrc: '/image-25@2x.png',
+    },
+    {
+      heading: 'Tax Saving Solutions',
+      description:
+        'Minimize your tax burden with smart, legal strategies. We guide you through investment options and planning techniques that reduce liabilities and maximize your savings.',
+      imgSrc: '/image-26@2x.png',
+    },
+    {
+      heading: 'Goal-Based Financial Planning',
+      description:
+        'Financial planning is not one-size-fits-all. We help you define your objectives, whether it’s buying a home, funding education, or planning for a dream vacation, & create actionable strategies to reach them efficiently.',
+      imgSrc: '/image-27-1@2x.png',
+    },
+    {
+      heading: 'Mutual Fund Investments',
+      description:
+        'Invest in a diversified range of mutual funds managed by experienced professionals. Our approach balances risk and reward, helping you grow your wealth steadily while keeping your financial goals in focus.',
+      imgSrc: '/image-27@2x.png',
+    },
+    {
+      heading: 'Portfolio Management',
+      description:
+        'Build a strong financial future with a carefully managed portfolio. Our experts continuously monitor your investments to ensure optimal growth, stability, and alignment with your risk profile.',
+      imgSrc: '/image-24@2x.png',
+    },
+    
   ];
 
   const featureCards = [
@@ -87,32 +95,31 @@ const HeroSection = () => {
         </div>
       </section>
 
+
       {/* ================= About Us Section ================= */}
-      <div id="about-us">
+      <div id="about-us" className="info-bento-grid">
         {infoBoxes.map((box, index) => (
-          <section
-            className={`info-section ${index % 2 !== 0 ? 'reverse' : ''}`}
+          <div
+            className="info-bento-card"
             key={index}
+            style={{ backgroundImage: `url(${box.imgSrc})` }}
           >
-            <div className="info-container">
-              <div className="info-box-wrapper">
-                <div className="info-box-red">
-                  <h2>{box.heading}</h2>
-                  <p>{box.description}</p>
-                </div>
-              </div>
-              <div className="info-image">
-                <img src={box.imgSrc} alt={box.heading} />
-              </div>
+            <div className="info-bento-overlay">
+              <h2>{box.heading}</h2>
+              <p>{box.description}</p>
             </div>
-          </section>
+          </div>
         ))}
       </div>
 
+
+
+
       {/* ================= Full Image Section ================= */}
       <section className="feature-section">
-        <h2 className="feature-heading">Our Approach</h2>
+        
         <div className="feature-image-container">
+          <h2 className="feature-heading">Our Approach</h2>
           <img
             src="/OurApproach.svg"
             alt="Feature"
@@ -129,6 +136,7 @@ const HeroSection = () => {
           </div>
         </div>
 
+
         {/* Feature Cards Row */}
         <div className="feature-cards">
           {featureCards.map((card, index) => (
@@ -141,6 +149,7 @@ const HeroSection = () => {
         </div>
       </section>
 
+      <FeaturedClients />
       {/* ================= Contact Section ================= */}
       <section id="contact">
         <Contact />
