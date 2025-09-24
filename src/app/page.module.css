@@ -1,186 +1,206 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-.servicePage {
+/* Reset default margins/padding */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Container */
+.container {
   position: relative;
-  padding: 6rem 1rem;
+  width: 100%;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   overflow: hidden;
-
-  /* smooth animation */
-  transition: transform 0.6s ease;
 }
 
-.servicePage:hover {
-  transform: translateY(-100px);
+/* Overlay (text + header on top of background) */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  text-align: center;
+  color: white;
+  padding: 20px;
 }
 
-/* Background image */
-.bgWrapper {
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo img {
+  height: 50px;
+  max-width: 150px;
+}
+
+.centerContent {
+  position: relative;
+  top: 0;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 3.5rem;
+  margin-bottom: 30px;
+}
+
+.subtitle {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 200;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* -------------------- Services Section -------------------- */
+.services {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 100vh; /* Full viewport height */
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  flex: 1;
+  min-height: 100vh; /* Each card fills full screen */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background image layer */
+.cardBackground {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+/* Curtain overlay effect */
+.cardBackground::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  transition: top 0.3s ease-in-out;
+  z-index: 1;
+}
+
+/* On hover → curtain slides down */
+.card:hover .cardBackground::after {
+  top: 0;
+}
+
+/* Dark overlay for readability */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+/* Subtle shadow at the top */
+.card::after {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  z-index: 0;
-  background: url(/HeroSection.svg);
-  background-size: cover;
-  background-position: center;
+  height: 120px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent);
+  z-index: 3;
 }
 
-
-.bgImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 1;
-}
-
-/* Content wrapper */
-.contentWrapper {
-  max-width: 1400px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-}
-
-/* Logo */
-.logo img {
-  max-width: 200px;
-  margin: 0 auto 2rem auto;
-  display: block;
-}
-
-/* Title */
-.title {
-  font-family: "DM Sans", sans-serif;
-  font-style: normal;
-  font-weight: 150;
-  color: #000000;
-
-  font-size: clamp(1.8rem, 5vw, 5.6rem);
-  margin-bottom: clamp(1rem, 2vw, 2rem);
-  text-align: center;
-  line-height: 1.2;
-}
-
-/* Services Cards */
-.cards {
-  display: flex;
-  gap: 0.02rem;
-  justify-content: center;
-  align-items: stretch;
-  flex-wrap: wrap; /* ensures wrapping */
-}
-
-/* Card */
-.card {
-  flex: 1 1 320px;
-  max-width: 350px;
-  min-width: 260px;
-  height: 420px;
-  background: #ffffff;
-  /* border-radius: 1rem; */
-  padding: 2rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-  cursor: pointer;
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: scaleX(-6px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
-}
-
-.cardTitle {
-  font-family: "DM Sans", sans-serif;
-  font-size: 1.8rem;
-  font-style: normal;
-  font-weight: 250;
-  color: #191A23;
-  margin-bottom: 3rem;
-}
-
-.icon {
-  font-size: 2.5rem;
-  font-weight: 300;
-  color: #b9ff66;
-  margin-bottom: 1rem;
-}
-
-.description {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 200;
-  font-size: 0.9 rem;
-  color: #000000;
-  flex-grow: 1;
-  margin-bottom: 2rem;
-}
-
-/* Circle Arrow Button */
-.arrowWrapper {
+/* Card Content */
+.cardContent {
   position: absolute;
-  bottom: 1.5rem;
+  bottom: 80px;
   left: 50%;
   transform: translateX(-50%);
+  text-align: center;
+  color: white;
+  z-index: 4;
 }
 
-.arrowButton {
-  width: 45px;
-  height: 45px;
+.cardContent h2 {
+  font-weight: 500;
+  font-size: 2.7rem;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+}
+
+.button {
+  padding: 12px 28px;
+  border: 1px solid white;
   background: transparent;
+  color: white;
+  font-weight: 200;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+}
+
+.button:hover {
+  background: white;
   color: black;
-  border : 1px solid black;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  font-weight: bold;
-  transition: background 0.3s ease, transform 0.3s ease;
+  text-shadow: none;
 }
 
-.arrowButton:hover {
-  background: black;
-  color: #b9ff66;
-  transform: rotate(-45deg);
-}
+/* Background Images */
+.marketing .cardBackground { background-image: url("/LandingMarketing.svg"); }
+.software .cardBackground { background-image: url("/LandingSoftware.svg"); }
+.financial .cardBackground { background-image: url("/LandingFinance.svg"); }
 
-/* Responsive */
+/* -------------------- Responsive -------------------- */
+
+/* Tablets */
 @media (max-width: 1024px) {
-  .cards {
-    gap: 1.5rem;
-  }
+  .title { font-size: 3rem; }
+  .subtitle { font-size: 1.2rem; max-width: 700px; }
+  .cardContent h2 { font-size: 2.2rem; }
+  .services { flex-direction: column; }
+  .card { min-height: 80vh; }
 }
 
+/* Smartphones */
 @media (max-width: 768px) {
-  .cards {
-    flex-direction: column;
-    align-items: center;
-  }
+  .overlay { padding: 10px; }
+  .logo img { height: 40px; }
+  .centerContent { top: 0; padding: 0 15px; }
+  .title { font-size: 2.4rem; }
+  .subtitle { font-size: 1rem; max-width: 100%; padding: 0 10px; }
+  .cardContent { bottom: 40px; }
+  .cardContent h2 { font-size: 1.8rem; }
+  .button { padding: 10px 20px; font-size: 0.95rem; }
+}
 
-  .card {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    padding-bottom: 5rem; /* space for arrow */
-  }
-
-  .arrowWrapper {
-    bottom: 1rem;
-  }
-
-  .title {
-    font-size: 2rem;
-  }
+/* Small phones */
+@media (max-width: 480px) {
+  .title { font-size: 2rem; }
+  .subtitle { font-size: 0.9rem; }
+  .cardContent h2 { font-size: 1.5rem; }
+  .button { padding: 8px 16px; font-size: 0.85rem; }
+  .card { min-height: 70vh; }
 }

@@ -3,12 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import "./page.css";
 
-import AboutUs from "./knowUs/AboutUs";
-import ClientsSpeak from "./clients/ClientsSpeak";
-import FeaturedClients from "./featuredclients/FeaturedClients";
-import Blogs from "./blog/Blogs";
-import Contact from "./contact/Contact";
-import Footer from "./footer/Footer";
+import HeroSection from "./hero/hero";
 
 export default function SoftwareDevelopment() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,29 +11,6 @@ export default function SoftwareDevelopment() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLLIElement>(null);
   const router = useRouter();
-
-  const services = [
-    {
-      title: "Web Development",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel elit ut turpis auctor vehicula.",
-    },
-    {
-      title: "Mobile Applications",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel elit ut turpis auctor vehicula.",
-    },
-    {
-      title: "UI/UX Design",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel elit ut turpis auctor vehicula.",
-    },
-    {
-      title: "Cloud Solutions",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel elit ut turpis auctor vehicula.",
-    },
-    {
-      title: "Maintenance & Support",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel elit ut turpis auctor vehicula.",
-    },
-  ];
 
   // Navbar scroll effect
   useEffect(() => {
@@ -88,7 +60,7 @@ export default function SoftwareDevelopment() {
                 className="nav-link"
                 onClick={(e) => {
                   e.preventDefault();
-                  router.push("/"); // Navigate to HomePage
+                  router.push("#software-development"); // Navigate to HomePage
                 }}
               >
                 Home
@@ -97,9 +69,9 @@ export default function SoftwareDevelopment() {
 
             <li>
               <a
-                href="#about"
+                href="#about-us"
                 className="nav-link"
-                onClick={(e) => handleSmoothScroll(e, "about")}
+                onClick={(e) => handleSmoothScroll(e, "about-us")}
               >
                 About Us
               </a>
@@ -134,7 +106,7 @@ export default function SoftwareDevelopment() {
                     className="dropdown-item"
                     onClick={(e) => {
                       e.preventDefault();
-                      router.push("#digital-marketing");
+                      router.push("/services/digital-marketing");
                       setDropdownOpen(false);
                       setMenuOpen(false);
                     }}
@@ -189,29 +161,10 @@ export default function SoftwareDevelopment() {
         </div>
       </nav>
 
-      {/* ================= SERVICES ================= */}
-      <section id="services" className="servicePage">
-        <div className="titleWrapper">
-          <h1 className="serviceTitle">Digital Marketing</h1>
-        </div>
-
-        <div className="serviceGrid">
-          {services.map((service, index) => (
-            <div key={index} className="serviceBox" tabIndex={0}>
-              <h2 className="boxTitle">{service.title}</h2>
-              <p className="boxDesc">{service.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
+     
       {/* ================= OTHER SECTIONS ================= */}
-      <AboutUs />
-      <ClientsSpeak />
-      <FeaturedClients />
-      <Blogs />
-      <Contact />
-      <Footer />
+      <HeroSection/>
+      
     </>
   );
 }

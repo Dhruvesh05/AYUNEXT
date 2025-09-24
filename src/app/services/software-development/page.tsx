@@ -60,7 +60,7 @@ export default function SoftwareDevelopment() {
                 className="nav-link"
                 onClick={(e) => {
                   e.preventDefault();
-                  router.push("/hero/hero"); // Navigate to HomePage
+                  router.push("#software-development"); // Navigate to HomePage
                 }}
               >
                 Home

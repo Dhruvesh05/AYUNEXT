@@ -1,67 +1,65 @@
 "use client";
-import React from "react";
+
+import Link from "next/link";
 import styles from "./page.module.css";
-import { FaCode, FaBullhorn, FaChartLine } from "react-icons/fa";
-import { useRouter } from "next/navigation";
 
-export default function HomePage() {
-  const router = useRouter();
-
-  const services = [
-    {
-      title: "Software Development",
-      icon: <FaCode />,
-      desc: "Custom web and mobile applications tailored to your business needs with scalable and secure solutions.",
-      link: "/services/software-development",
-    },
-    {
-      title: "Digital Marketing",
-      icon: <FaBullhorn />,
-      desc: "Boost your online presence with SEO, social media, and digital strategies that drive measurable growth.",
-      link: "/services/digital-marketing",
-    },
-    {
-      title: "Financial Services",
-      icon: <FaChartLine />,
-      desc: "Expert financial consulting to streamline operations, manage risks, and secure your company’s future.",
-      link: "/services/financial-services",
-    },
-  ];
-
+export default function Home() {
   return (
-    <section id="services" className={styles.servicePage}>
-      {/* Background */}
-      <div className={styles.bgWrapper}>
-        <img src="/HeroSection.svg" alt="Background" className={styles.bgImage} />
-      </div>
+    <div className={styles.container}>
+      {/* Overlay Content */}
+      <div className={styles.overlay}>
+        <header className={styles.header}>
+          <div className={styles.logo}>
+            <img src="/Ayunextlogo.png" alt="Ayunext Solutions" />
+          </div>
+        </header>
 
-      <div className={styles.contentWrapper}>
-        {/* Logo */}
-        <div className={styles.logo}>
-          <img src="/Ayunextlogo.png" alt="Ayunext Logo" />
-        </div>
-
-        {/* Services Section */}
-        <h2 className={styles.title}>Our Services</h2>
-        <div className={styles.cards}>
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className={styles.card}
-              onClick={() => router.push(service.link)}
-            >
-              <h3 className={styles.cardTitle}>{service.title}</h3>
-              <div className={styles.icon}>{service.icon}</div>
-              <p className={styles.description}>{service.desc}</p>
-
-             
-              <div className={styles.arrowWrapper}>
-                <span className={styles.arrowButton}>→</span>
-              </div>
-            </div>
-          ))}
+        <div className={styles.centerContent}>
+          <h1 className={styles.title}>Ayunext Solutions</h1>
+          <p className={styles.subtitle}>
+            Ayunext Solutions delivers business-focused technology and financial
+            services to help companies grow, streamline operations, and secure
+            their financial future. Our mission is to combine innovation with
+            practical solutions that drive measurable results for our clients.
+          </p>
         </div>
       </div>
-    </section>
+
+      {/* Background Services Section */}
+      <div className={styles.services}>
+        {/* Digital Marketing */}
+        <div className={`${styles.card} ${styles.marketing}`}>
+          <div className={styles.cardBackground}></div>
+          <div className={styles.cardContent}>
+            <h2>Digital Marketing</h2>
+            <Link href="/services/digital-marketing">
+              <button className={styles.button}>Get Advice</button>
+            </Link>
+          </div>
+        </div>
+
+        {/* Software Services */}
+        <div className={`${styles.card} ${styles.software}`}>
+          <div className={styles.cardBackground}></div>
+          <div className={styles.cardContent}>
+            <h2>Software Services</h2>
+            <Link href="/services/software-development">
+              <button className={styles.button}>Get Advice</button>
+            </Link>
+          </div>
+        </div>
+
+        {/* Financial Services */}
+        <div className={`${styles.card} ${styles.financial}`}>
+          <div className={styles.cardBackground}></div>
+          <div className={styles.cardContent}>
+            <h2>Financial Services</h2>
+            <Link href="/services/financial-services">
+              <button className={styles.button}>Get Advice</button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
