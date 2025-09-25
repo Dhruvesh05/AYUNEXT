@@ -22,16 +22,23 @@ export default function SoftwareDevelopment() {
   // Close dropdown if clicked outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setDropdownOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    return () =>
+      document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   // Smooth scroll helper
-  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+  const handleSmoothScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    id: string
+  ) => {
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
@@ -47,7 +54,7 @@ export default function SoftwareDevelopment() {
         <div className="nav-container">
           {/* Logo */}
           <div className="nav-logo">
-            <a href="/page" onClick={(e) => handleSmoothScroll(e, "hero")}>
+            <a href="#hero" onClick={(e) => handleSmoothScroll(e, "hero")}>
               <img src="/Ayunextlogo.png" alt="Ayunext Logo" />
             </a>
           </div>
@@ -56,12 +63,9 @@ export default function SoftwareDevelopment() {
           <ul className={`nav-menu ${menuOpen ? "active" : ""}`}>
             <li>
               <a
-                href="/page"
+                href="#hero"
                 className="nav-link"
-                onClick={(e) => {
-                  e.preventDefault();
-                  router.push("#software-development"); // Navigate to HomePage
-                }}
+                onClick={(e) => handleSmoothScroll(e, "hero")}
               >
                 Home
               </a>
@@ -79,63 +83,66 @@ export default function SoftwareDevelopment() {
 
             {/* Services + Dropdown */}
             <li className="services-nav" ref={dropdownRef}>
-              <a className="nav-link">
-                <button
-                  className="dropdown-arrow"
-                  onClick={() => setDropdownOpen(!dropdownOpen)}
-                >
-                  Services ▼
-                </button>
-              </a>
-              {dropdownOpen && (
-                <div className="dropdown-menu">
-                  <a
-                    href="/services/software-development"
-                    className="dropdown-item"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      router.push("/services/software-development");
-                      setDropdownOpen(false);
-                      setMenuOpen(false);
-                    }}
-                  >
-                    Software Development
-                  </a>
-                  <a
-                    href="/services/digital-marketing"
-                    className="dropdown-item"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      router.push("/services/digital-marketing");
-                      setDropdownOpen(false);
-                      setMenuOpen(false);
-                    }}
-                  >
-                    Digital Marketing
-                  </a>
-                  <a
-                    href="/services/financial-services"
-                    className="dropdown-item"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      router.push("/services/financial-services");
-                      setDropdownOpen(false);
-                      setMenuOpen(false);
-                    }}
-                  >
-                    Financial Services
-                  </a>
-                </div>
-              )}
-            </li>
+  <a className="nav-link">
+    <button
+      className={`dropdown-arrow ${dropdownOpen ? "open" : ""}`}
+      onClick={() => setDropdownOpen(!dropdownOpen)}
+    >
+      Services ▼
+    </button>
+  </a>
+
+  {/* Keep the dropdown always in DOM for animation */}
+  <div
+    className={`dropdown-menu ${dropdownOpen ? "open" : ""}`}
+  >
+    <a
+      href="/services/software-development"
+      className="dropdown-item"
+      onClick={(e) => {
+        e.preventDefault();
+        router.push("/services/software-development");
+        setDropdownOpen(false);
+        setMenuOpen(false);
+      }}
+    >
+      Software Development
+    </a>
+    <a
+      href="/services/digital-marketing"
+      className="dropdown-item"
+      onClick={(e) => {
+        e.preventDefault();
+        router.push("/services/digital-marketing");
+        setDropdownOpen(false);
+        setMenuOpen(false);
+      }}
+    >
+      Digital Marketing
+    </a>
+    <a
+      href="#hero"
+      className="dropdown-item"
+      onClick={(e) => {
+        e.preventDefault();
+        router.push("#hero");
+        setDropdownOpen(false);
+        setMenuOpen(false);
+      }}
+    >
+      Financial Services
+    </a>
+  </div>
+</li>
+
 
             <li>
               <a
-                href="#clients"
+                href="#ClientsSpeak"
                 className="nav-link"
-                onClick={(e) => handleSmoothScroll(e, "clients")}
+                onClick={(e) => handleSmoothScroll(e, "ClientsSpeak")}
               >
-                Resources
+                Testimonials
               </a>
             </li>
             <li>
@@ -161,10 +168,8 @@ export default function SoftwareDevelopment() {
         </div>
       </nav>
 
-     
       {/* ================= OTHER SECTIONS ================= */}
-      <HeroSection/>
-      
+      <HeroSection />
     </>
   );
 }

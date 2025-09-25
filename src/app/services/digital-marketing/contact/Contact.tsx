@@ -17,7 +17,7 @@ export default function Contact() {
               Your next big step starts here. Let’s build the technology and
               strategies to help your business grow.
             </p>
-            <button className={styles.bannerButton}>Get Advice</button>
+            {/* <button className={styles.bannerButton}>Get Advice</button> */}
           </div>
 
           {/* Contact Form */}
@@ -68,10 +68,10 @@ export default function Contact() {
               className={styles.formTextarea}
             ></textarea>
 
-            <div className={styles.checkboxRow}>
+            {/* <div className={styles.checkboxRow}>
               <input type="checkbox" id="newsletter" />
               <label htmlFor="newsletter">Newsletter Signup</label>
-            </div>
+            </div> */}
 
             <button type="submit" className={styles.submitButton}>
               Send

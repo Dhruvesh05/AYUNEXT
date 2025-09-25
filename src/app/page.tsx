@@ -9,13 +9,13 @@ export default function Home() {
       {/* Overlay Content */}
       <div className={styles.overlay}>
         <header className={styles.header}>
-          <div className={styles.logo}>
-            <img src="/Ayunextlogo.png" alt="Ayunext Solutions" />
-          </div>
+          
         </header>
 
         <div className={styles.centerContent}>
-          <h1 className={styles.title}>Ayunext Solutions</h1>
+          <h1 className={styles.title}><div className={styles.logo}>
+            <img src="/Ayunextlogo.png" alt="Ayunext Solutions" />
+          </div></h1>
           <p className={styles.subtitle}>
             Ayunext Solutions delivers business-focused technology and financial
             services to help companies grow, streamline operations, and secure

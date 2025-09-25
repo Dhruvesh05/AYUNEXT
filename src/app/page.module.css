@@ -72,43 +72,31 @@ html, body {
   display: flex;
   flex-direction: row;
   width: 100%;
-  min-height: 100vh; /* Full viewport height */
+  min-height: 100vh;
   margin: 0;
   padding: 0;
 }
 
 .card {
   flex: 1;
-  min-height: 100vh; /* Each card fills full screen */
+  min-height: 100vh;
   position: relative;
   overflow: hidden;
 }
 
-/* Background image layer */
+/* Background image with zoom on hover */
 .cardBackground {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
   z-index: 0;
+  transition: transform 0.5s ease-in-out;
 }
 
-/* Curtain overlay effect */
-.cardBackground::after {
-  content: "";
-  position: absolute;
-  top: -100%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
-  transition: top 0.3s ease-in-out;
-  z-index: 1;
-}
-
-/* On hover → curtain slides down */
-.card:hover .cardBackground::after {
-  top: 0;
+/* Only background zooms */
+.card:hover .cardBackground {
+  transform: scale(1.1);
 }
 
 /* Dark overlay for readability */
@@ -116,8 +104,8 @@ html, body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 2;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
 }
 
 /* Subtle shadow at the top */
@@ -129,8 +117,18 @@ html, body {
   width: 100%;
   height: 120px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent);
-  z-index: 3;
+  z-index: 2;
 }
+
+/* Content stays fixed (doesn't zoom) */
+.cardContent {
+  position: relative;
+  z-index: 3;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
 
 /* Card Content */
 .cardContent {
@@ -203,4 +201,25 @@ html, body {
   .cardContent h2 { font-size: 1.5rem; }
   .button { padding: 8px 16px; font-size: 0.85rem; }
   .card { min-height: 70vh; }
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center horizontally */
+  height: 100px; /* Adjust navbar/logo container height */
+}
+
+.logo img {
+  height: 180px;   /* Increase size */
+  width: 200px;    /* Keep aspect ratio */
+  object-fit: contain;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+/* Subtle zoom on hover */
+.logo img:hover {
+  transform: scale(1.5);
 }

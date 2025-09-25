@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap");
 
 .footer {
-  background: #191a23;
+  background: #030034;
   color: #fff;
   padding: 60px 20px 30px;
   font-family: "DM Sans", sans-serif;
@@ -49,9 +49,9 @@
 }
 
 .backToTop:hover {
-  background: #a0e048;
+  background: #1A73E8;
   color: black;
-  border-color: #a0e048;
+  border-color: #1A73E8;
 }
 
 /* Social Icons */
@@ -96,7 +96,7 @@
   font-weight: 250;
   font-size: 1.2rem;
   margin-bottom: 15px;
-  color: #b9ff66;
+  color: #1A73E8;
 }
 
 .links {
@@ -115,7 +115,7 @@
 }
 
 .links li a:hover {
-  color: #b9ff66;
+  color: #1A73E8;
 }
 
 .servicesSection li {
@@ -124,7 +124,7 @@
 }
 
 .servicesSection li:hover {
-  color: #b9ff66;
+  color: #1A73E8;
 }
 
 /* Copyright */

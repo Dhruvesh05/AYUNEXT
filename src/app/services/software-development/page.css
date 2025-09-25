@@ -95,7 +95,7 @@ body {
   bottom: -1px;
   height: 1px;
   width: 100%;
-  background-color: #4982fd;
+  background-color: #5DBB61;
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.3s ease;
@@ -107,7 +107,7 @@ body {
 }
 
 .nav-link:hover {
-  color: #4982fd;
+  color: #5DBB61;
 }
 
 /* Dropdown */
@@ -123,6 +123,10 @@ body {
   flex-direction: column;
   min-width: 200px;
   z-index: 1000;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.7s ease;
 }
 
 .dropdown-item {
@@ -134,6 +138,11 @@ body {
   transition: background 0.2s ease;
 }
 
+.dropdown-menu.open {
+  max-height: 500px; /* enough to fit all items */
+  opacity: 1;
+}
+
 .dropdown-arrow {
   background: transparent;
   border: none;
@@ -142,10 +151,13 @@ body {
   margin-left: 4px;
   color: inherit;
   padding: 0;
+  transition: transform 0.3s ease;
 }
-  
+
+
+
 .dropdown-arrow:hover {
-  color: #0070f3;
+  color: #5DBB61;
 }
 
 /* Hamburger */

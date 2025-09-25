@@ -1,83 +1,83 @@
-import React from 'react';
-import './hero.css';
+import React from "react";
+import "./hero.css";
 
 // Import Contact and Footer components
-import Contact from '../contact/Contact';
-import Footer from '../footer/Footer';
-import FeaturedClients from '../featuredclients/FeaturedClients';
+import Contact from "../contact/Contact";
+import Footer from "../footer/Footer";
+import FeaturedClients from "../featuredclients/FeaturedClients";
+import ClientsSpeak from "../clients/ClientsSpeak"; // ✅ Import ClientsSpeak
 
 const HeroSection = () => {
   const infoBoxes = [
     {
-      heading: 'Portfolio Management',
+      heading: "Portfolio Management",
       description:
-        'Build a strong financial future with a carefully managed portfolio. Our experts continuously monitor your investments to ensure optimal growth, stability, and alignment with your risk profile.',
-      imgSrc: '/HeroSection.svg',
+        "Build a strong financial future with a carefully managed portfolio. Our experts continuously monitor your investments to ensure optimal growth, stability, and alignment with your risk profile.",
+      imgSrc: "/HeroSection.svg",
     },
     {
-      heading: 'Retirement Planning',
+      heading: "Retirement Planning",
       description:
-        'Secure your golden years with a well-structured retirement plan. From estimating future needs to designing sustainable income streams, we ensure your retirement is financially comfortable and stress-free.',
-      imgSrc: '/image-25@2x.png',
+        "Secure your golden years with a well-structured retirement plan. From estimating future needs to designing sustainable income streams, we ensure your retirement is financially comfortable and stress-free.",
+      imgSrc: "/image-25@2x.png",
     },
     {
-      heading: 'Tax Saving Solutions',
+      heading: "Tax Saving Solutions",
       description:
-        'Minimize your tax burden with smart, legal strategies. We guide you through investment options and planning techniques that reduce liabilities and maximize your savings.',
-      imgSrc: '/image-26@2x.png',
+        "Minimize your tax burden with smart, legal strategies. We guide you through investment options and planning techniques that reduce liabilities and maximize your savings.",
+      imgSrc: "/image-26@2x.png",
     },
     {
-      heading: 'Goal-Based Financial Planning',
+      heading: "Goal-Based Financial Planning",
       description:
-        'Financial planning is not one-size-fits-all. We help you define your objectives, whether it’s buying a home, funding education, or planning for a dream vacation, & create actionable strategies to reach them efficiently.',
-      imgSrc: '/image-27-1@2x.png',
+        "Financial planning is not one-size-fits-all. We help you define your objectives, whether it’s buying a home, funding education, or planning for a dream vacation, & create actionable strategies to reach them efficiently.",
+      imgSrc: "/image-27-1@2x.png",
     },
     {
-      heading: 'Mutual Fund Investments',
+      heading: "Mutual Fund Investments",
       description:
-        'Invest in a diversified range of mutual funds managed by experienced professionals. Our approach balances risk and reward, helping you grow your wealth steadily while keeping your financial goals in focus.',
-      imgSrc: '/image-27@2x.png',
+        "Invest in a diversified range of mutual funds managed by experienced professionals. Our approach balances risk and reward, helping you grow your wealth steadily while keeping your financial goals in focus.",
+      imgSrc: "/image-27@2x.png",
     },
     {
-      heading: 'Portfolio Management',
+      heading: "Portfolio Management",
       description:
-        'Build a strong financial future with a carefully managed portfolio. Our experts continuously monitor your investments to ensure optimal growth, stability, and alignment with your risk profile.',
-      imgSrc: '/image-24@2x.png',
+        "Build a strong financial future with a carefully managed portfolio. Our experts continuously monitor your investments to ensure optimal growth, stability, and alignment with your risk profile.",
+      imgSrc: "/image-24@2x.png",
     },
-    
   ];
 
   const featureCards = [
     {
-      icon: '💡',
-      title: 'Reasearching',
+      icon: "💡",
+      title: "Reasearching",
       description:
-        'In-depth analysis of competitors and current market trends allows us to create strategies that not only stand out but also give our clients a competitive edge.',
+        "In-depth analysis of competitors and current market trends allows us to create strategies that not only stand out but also give our clients a competitive edge.",
     },
     {
-      icon: '⚡',
-      title: 'Understanding',
+      icon: "⚡",
+      title: "Understanding",
       description:
-        'We begin by actively listening to our clients, analyzing their challenges, and identifying their unique needs to ensure our solutions align perfectly with their expectations.',
+        "We begin by actively listening to our clients, analyzing their challenges, and identifying their unique needs to ensure our solutions align perfectly with their expectations.",
     },
     {
-      icon: '🔒',
-      title: 'Designing',
+      icon: "🔒",
+      title: "Designing",
       description:
-        'We begin by actively listening to our clients, analyzing their challenges, and identifying their unique needs to ensure our solutions align perfectly with their expectations.',
+        "We begin by actively listening to our clients, analyzing their challenges, and identifying their unique needs to ensure our solutions align perfectly with their expectations.",
     },
     {
-      icon: '🌍',
-      title: 'Ensuring',
+      icon: "🌍",
+      title: "Ensuring",
       description:
-        'We prioritize efficiency by delivering projects on time while also providing continuous support and updates to maintain long-term success.',
+        "We prioritize efficiency by delivering projects on time while also providing continuous support and updates to maintain long-term success.",
     },
   ];
 
   return (
     <div>
       {/* ================= Hero Section ================= */}
-      <section className="hero-section">
+      <section id="hero" className="hero-section">
         <div className="hero-background">
           <div className="diagonal-shape"></div>
         </div>
@@ -95,7 +95,6 @@ const HeroSection = () => {
         </div>
       </section>
 
-
       {/* ================= About Us Section ================= */}
       <div id="about-us" className="info-bento-grid">
         {infoBoxes.map((box, index) => (
@@ -112,12 +111,8 @@ const HeroSection = () => {
         ))}
       </div>
 
-
-
-
       {/* ================= Full Image Section ================= */}
       <section className="feature-section">
-        
         <div className="feature-image-container">
           <h2 className="feature-heading">Our Approach</h2>
           <img
@@ -127,15 +122,15 @@ const HeroSection = () => {
           />
           <div className="feature-blur-box">
             <p>
-              We follow a client-first approach built on understanding, research,
-              customization, and long-term support. By carefully analyzing client
-              needs and market trends, we craft tailored strategies that deliver
-              measurable results. With a focus on efficiency, timely delivery, and
-              continuous support, we ensure lasting success for every project.
+              We follow a client-first approach built on understanding,
+              research, customization, and long-term support. By carefully
+              analyzing client needs and market trends, we craft tailored
+              strategies that deliver measurable results. With a focus on
+              efficiency, timely delivery, and continuous support, we ensure
+              lasting success for every project.
             </p>
           </div>
         </div>
-
 
         {/* Feature Cards Row */}
         <div className="feature-cards">
@@ -150,10 +145,18 @@ const HeroSection = () => {
       </section>
 
       <FeaturedClients />
+
+      {/* ================= Clients Speak Section ================= */}
+            <section id="clients-speak">
+              <ClientsSpeak />
+            </section>
+      
       {/* ================= Contact Section ================= */}
       <section id="contact">
         <Contact />
       </section>
+
+      
 
       {/* ================= Footer ================= */}
       <Footer />

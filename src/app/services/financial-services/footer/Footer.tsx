@@ -10,6 +10,15 @@ export default function Footer() {
     }
   };
 
+  // Smooth scroll helper
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
@@ -26,9 +35,18 @@ export default function Footer() {
             their financial future. Our mission is to combine innovation with
             practical solutions that drive measurable results for our clients.
           </p>
-          <button onClick={scrollToTop} className={styles.backToTop}>
+          <button
+            onClick={() => {
+              const hero = document.getElementById("hero");
+              if (hero) {
+                hero.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            className={styles.backToTop}
+          >
             Back to Top
           </button>
+
 
           {/* Social Media Icons */}
           <div className={styles.socialIcons}>
@@ -60,21 +78,22 @@ export default function Footer() {
         <div className={styles.linksSection}>
           <h4>Quick Links</h4>
           <ul className={styles.links}>
-            <li>
-              <a href="#hero">Home</a>
-            </li>
-            <li>
-              <a href="#about">About Us</a>
-            </li>
-            <li>
-              <a href="#services">Services</a>
-            </li>
-            <li>
-              <a href="#blogs">Blogs & Insights</a>
-            </li>
-            <li>
-              <a href="#contact">Contact Us</a>
-            </li>
+            {[
+              { id: "hero", label: "Home" },
+              { id: "about-us", label: "About Us" },
+              { id: "hero", label: "Services" },
+              { id: "ClientsSpeak", label: "Testimonials" },
+              { id: "contact", label: "Contact Us" },
+            ].map((link) => (
+              <li key={link.id}>
+                <a
+                  href={`#${link.id}`}
+                  onClick={(e) => handleSmoothScroll(e, link.id)}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 

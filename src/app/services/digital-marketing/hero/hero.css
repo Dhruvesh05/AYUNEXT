@@ -25,7 +25,7 @@ html {
   left: 0;
   width: 85%;
   height: 100%;
-  background: linear-gradient(135deg, #1A73E8 0%, #1A73E8 100%);
+  background: linear-gradient(135deg, #F07E1B 0%, #F07E1B 100%);
   border-top: #f9f9f9 solid 20px;
   border-bottom: #f9f9f9 solid 20px;
   clip-path: polygon(0 0, 85% 0, 70% 100%, 0 100%);
@@ -95,7 +95,7 @@ html {
   grid-template-rows: repeat(2, 1fr);
   width: 100%;
   max-width: 1200px;
-  margin: 4rem auto;   /* top & bottom spacing */
+  margin: 4rem auto;
   padding: 0;
   gap: 0;
   aspect-ratio: 3 / 2;
@@ -116,7 +116,9 @@ html {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Hover: scale + shadow effect */
 .info-bento-card:hover {
+  transform: scale(1.05); /* added scale */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   z-index: 1;
 }
@@ -131,9 +133,7 @@ html {
   align-items: center;
   text-align: center;
   padding: 1rem;
-  pointer-events: none; /* prevents overlay blocking hover */
-  
-  /* Dark overlay starts from bottom, hidden */
+  pointer-events: none;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%);
   transform: translateY(100%);
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -144,22 +144,20 @@ html {
   transform: translateY(0);
 }
 
-/* Title - always visible, no animations at all */
+/* Title - always visible, no animations */
 .info-bento-overlay h2 {
   font-family: "DM Sans", sans-serif;
   font-weight: 300;
   font-size: 1.3rem;
-  /* font-weight: 600; */
   margin-bottom: 0.6rem;
   color: #ffffff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-  /* No animations - completely static */
 }
 
 /* Paragraph initially hidden */
 .info-bento-overlay p {
   transform: translateY(30px);
-  opacity: 0; /* completely hidden initially */
+  opacity: 0;
   font-family: "DM Sans", sans-serif;
   font-weight: 200;
   font-size: 0.9rem;
@@ -167,13 +165,13 @@ html {
   max-width: 90%;
   color: #ffffff;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  transition-delay: 0.1s; /* slight delay after overlay fade */
+  transition-delay: 0.1s;
 }
 
 /* Paragraph appears only on hover */
 .info-bento-card:hover .info-bento-overlay p {
   transform: translateY(0);
-  opacity: 1; /* fade + slide on hover */
+  opacity: 1;
 }
 
 /* Optional: subtle border animation */
@@ -203,10 +201,6 @@ html {
   z-index: -1;
 }
 
-/* .info-bento-card:hover .info-bento-overlay::after {
-  opacity: 1;
-} */
-
 /* Responsive adjustments */
 @media (max-width: 900px) {
   .info-bento-grid {
@@ -217,14 +211,13 @@ html {
   }
   
   .info-bento-overlay h2 {
-    font-size: 1.2rem; /* always visible */
+    font-size: 1.2rem;
   }
   
   .info-bento-overlay p {
     font-size: 0.85rem;
   }
   
-  /* Faster fade on medium screens */
   .info-bento-overlay {
     transition: background 0.3s ease;
   }
@@ -243,19 +236,22 @@ html {
   }
   
   .info-bento-overlay h2 {
-    font-size: 1.1rem; /* always visible */
+    font-size: 1.1rem;
   }
   
   .info-bento-overlay p {
     transition: all 0.5s ease;
     font-size: 0.8rem;
-    transition-delay: 0.05s; /* faster on mobile */
+    transition-delay: 0.05s;
   }
 }
+
+
+
 /* ================= New Full Feature Section ================= */
 .feature-section {
   padding: 5rem 2rem;
-  background: #1A73E8;
+  background: #F07E1B;
 }
 .feature-heading {
   position: absolute;       /* position on top of image */
@@ -264,7 +260,7 @@ html {
   font-family: "DM Sans", sans-serif;
   font-weight: 600;         /* heavier weight */
   font-size: 3rem;          /* adjust size to fit image */
-  color: #1A73E8;
+  color: #F07E1B;
   z-index: 2;               /* above image */
   margin: 0;                /* remove default margin */
 }
@@ -304,7 +300,7 @@ html {
   font-weight: 300;
   font-size: 1.8rem;
   margin-bottom: 1rem;
-  color: #6c63ff;
+  color: #F07E1B;
 }
 
 .feature-blur-box p {
