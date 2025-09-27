@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import "./page.css";
 
-import HeroSection from "./hero/hero";
+import HeroSection from "./hero/hero"; // ✅ fixed import
 
 export default function SoftwareDevelopment() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,8 +30,7 @@ export default function SoftwareDevelopment() {
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
-    return () =>
-      document.removeEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   // Smooth scroll helper
@@ -83,60 +82,57 @@ export default function SoftwareDevelopment() {
 
             {/* Services + Dropdown */}
             <li className="services-nav" ref={dropdownRef}>
-  <a className="nav-link">
-    <button
-      className={`dropdown-arrow ${dropdownOpen ? "open" : ""}`}
-      onClick={() => setDropdownOpen(!dropdownOpen)}
-    >
-      Services ▼
-    </button>
-  </a>
+              <a className="nav-link">
+                <button
+                  className={`dropdown-arrow ${dropdownOpen ? "open" : ""}`}
+                  onClick={() => setDropdownOpen(!dropdownOpen)}
+                >
+                  Services ▼
+                </button>
+              </a>
 
-  {/* Keep the dropdown always in DOM for animation */}
-  <div
-    className={`dropdown-menu ${dropdownOpen ? "open" : ""}`}
-  >
-    <a
-      href="#hero"
-      className="dropdown-item"
-      onClick={(e) => {
-        e.preventDefault();
-        router.push("#hero");
-        setDropdownOpen(false);
-        setMenuOpen(false);
-      }}
-    >
-      Software Development
-    </a>
-    <a
-      href="/services/digital-marketing"
-      className="dropdown-item"
-      onClick={(e) => {
-        e.preventDefault();
-        router.push("/services/digital-marketing");
-        setDropdownOpen(false);
-        setMenuOpen(false);
-      }}
-    >
-      Digital Marketing
-    </a>
-    <a
-      href="/services/financial-services"
-      className="dropdown-item"
-      onClick={(e) => {
-        e.preventDefault();
-        router.push("/services/financial-services");
-        setDropdownOpen(false);
-        setMenuOpen(false);
-      }}
-    >
-      Financial Services
-    </a>
-  </div>
-</li>
+              {/* Dropdown Menu */}
+              <div className={`dropdown-menu ${dropdownOpen ? "open" : ""}`}>
+                <a
+                  href="#hero"
+                  className="dropdown-item"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    router.push("#hero");
+                    setDropdownOpen(false);
+                    setMenuOpen(false);
+                  }}
+                >
+                  Software Development
+                </a>
+                <a
+                  href="/services/digital-marketing"
+                  className="dropdown-item"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    router.push("/services/digital-marketing");
+                    setDropdownOpen(false);
+                    setMenuOpen(false);
+                  }}
+                >
+                  Digital Marketing
+                </a>
+                <a
+                  href="/services/financial-services"
+                  className="dropdown-item"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    router.push("/services/financial-services");
+                    setDropdownOpen(false);
+                    setMenuOpen(false);
+                  }}
+                >
+                  Financial Services
+                </a>
+              </div>
+            </li>
 
-
-            <li>
+            {/* <li>
               <a
                 href="#ClientsSpeak"
                 className="nav-link"
@@ -144,7 +140,7 @@ export default function SoftwareDevelopment() {
               >
                 Testimonials
               </a>
-            </li>
+            </li> */}
             <li>
               <a
                 href="#contact"

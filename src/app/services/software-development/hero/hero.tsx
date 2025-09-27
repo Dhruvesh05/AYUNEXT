@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import "./hero.css";
 
 // Import components
@@ -113,38 +114,43 @@ const HeroSection = () => {
 
       {/* ================= Feature Section ================= */}
       <section className="feature-section">
-        <h2 className="feature-heading">Our Approach</h2>
+        <div className="feature-container">
+          <h2 className="feature-heading">Our Approach</h2>
 
-        <div className="feature-image-container">
-          <img
-            src="/OurApproach.svg"
-            alt="Our Approach"
-            className="feature-main-image"
-          />
-          <div className="feature-blur-box">
-            <p>
-              We follow a client-first approach built on understanding,
-              research, customization, and long-term support. By carefully
-              analyzing client needs and market trends, we craft tailored
-              strategies that deliver measurable results. With a focus on
-              efficiency, timely delivery, and continuous support, we ensure
-              lasting success for every project.
-            </p>
+          <div className="feature-content-wrapper">
+            <div className="feature-image-container">
+              <Image
+                src="/OurApproach.svg"
+                alt="Our Approach"
+                className="feature-main-image"
+                width={1200}
+                height={600}
+                priority
+              />
+              <div className="feature-blur-box">
+                <p>
+                  We follow a client-first approach built on understanding,
+                  research, customization, and long-term support. By carefully
+                  analyzing client needs and market trends, we craft tailored
+                  strategies that deliver measurable results. With a focus on
+                  efficiency, timely delivery, and continuous support, we ensure
+                  lasting success for every project.
+                </p>
+              </div>
+            </div>
+
+            <div className="feature-cards">
+              {featureCards.map((card, index) => (
+                <div className="feature-card" key={index}>
+                  <div className="feature-icon">{card.icon}</div>
+                  <h4>{card.title}</h4>
+                  <p>{card.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-
-        <div className="feature-cards">
-          {featureCards.map((card, index) => (
-            <div className="feature-card" key={index}>
-              <div className="feature-icon">{card.icon}</div>
-              <h4>{card.title}</h4>
-              <p>{card.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ================= Featured Clients ================= */}
+      </section>      {/* ================= Featured Clients ================= */}
       <FeaturedClients />
 
       {/* ================= Clients Speak ================= */}

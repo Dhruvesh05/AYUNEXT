@@ -109,8 +109,14 @@ html {
 .feature-heading {
   font-family: "DM Sans", sans-serif;
   font-weight: 600;
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   margin-bottom: 2rem;
+  text-align: left;
+}
+
+.feature-container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .feature-image-container {
@@ -126,6 +132,12 @@ html {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.feature-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 
 .feature-blur-box {
@@ -144,16 +156,43 @@ html {
 }
 
 .feature-blur-box p {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
   line-height: 1.6;
   margin: 0;
 }
 
 .feature-cards {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
-  flex-wrap: wrap;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .feature-section {
+    padding: 3rem 1rem;
+  }
+
+  .feature-image-container {
+    height: auto;
+    min-height: 300px;
+    margin-bottom: 0;
+  }
+
+  .feature-blur-box {
+    position: relative;
+    top: 0;
+    right: 0;
+    transform: none;
+    max-width: 100%;
+    margin: 2rem 0;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .feature-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
 .feature-card {
