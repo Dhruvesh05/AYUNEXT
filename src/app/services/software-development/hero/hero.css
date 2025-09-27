@@ -252,16 +252,16 @@ html {
 }
 
 .hero-title {
-  font-size: 3rem;
+  font-size:  64px;
   font-weight: bold;
   margin-bottom: 1rem;
-  color: black;
+  color: white;
 }
 
 .hero-description {
   font-size: 1.2rem;
   line-height: 1.6;
-  color: black;
+  color: white;
 }
 
 @media (max-width: 768px) {

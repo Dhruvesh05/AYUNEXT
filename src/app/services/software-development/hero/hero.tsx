@@ -10,9 +10,9 @@ import ClientsSpeak from "../clients/ClientsSpeak";
 const HeroSection = () => {
   const infoBoxes = [
     {
-      heading: "Software Services",
+      heading: "",
       description: "",
-      imgSrc: "/HeroSection.svg",
+      imgSrc: "/Group171.svg",
     },
     {
       heading: "Retirement Planning",
@@ -48,25 +48,25 @@ const HeroSection = () => {
 
   const featureCards = [
     {
-      icon: "💡",
+      icon: <img src="/Icon.svg" alt="" />,
       title: "Researching",
       description:
         "In-depth analysis of competitors and market trends allows us to create strategies that give our clients a competitive edge.",
     },
     {
-      icon: "⚡",
+      icon: <img src="/chart.svg" alt="" />,
       title: "Understanding",
       description:
         "We begin by actively listening to our clients, analyzing their challenges, and identifying their unique needs.",
     },
     {
-      icon: "🔒",
+      icon: <img src="/magicpen.svg" alt="" />,
       title: "Designing",
       description:
         "Our solutions are designed with precision and creativity to ensure functionality and user satisfaction.",
     },
     {
-      icon: "🌍",
+      icon: <img src="/shield-tick.svg" alt="" />,
       title: "Ensuring",
       description:
         "We prioritize efficiency by delivering projects on time while also providing continuous support and updates.",
