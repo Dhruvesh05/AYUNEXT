@@ -1,17 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* Reset default margins/padding */
+/* -------------------- Global Reset -------------------- */
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   overflow-x: hidden;
   font-family: 'DM Sans', sans-serif;
+  background: #000;
+  color: #fff;
 }
 
-/* Container */
+/* -------------------- Layout -------------------- */
 .container {
   position: relative;
   width: 100%;
@@ -19,7 +21,6 @@ html, body {
   overflow: hidden;
 }
 
-/* Overlay (text + header on top of background) */
 .overlay {
   position: absolute;
   top: 0;
@@ -27,134 +28,128 @@ html, body {
   z-index: 5;
   width: 100%;
   text-align: center;
-  color: white;
-  padding: 20px;
+  padding: 1.5rem;
 }
 
 .header {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
 }
 
 .logo img {
-  height: 50px;
-  max-width: 150px;
+  max-height: 80px;
+  max-width: 180px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
 }
 
+.logo img:hover {
+  transform: scale(1.2);
+}
+
+/* -------------------- Hero Section -------------------- */
 .centerContent {
-  position: relative;
-  top: 0;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #fff;
 }
 
 .title {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 500;
-  font-size: 3.5rem;
-  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
 }
 
 .subtitle {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 200;
-  font-size: 1.1rem;
+  font-weight: 300;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
   line-height: 1.7;
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
-/* -------------------- Services Section -------------------- */
+/* -------------------- Services Section (Grid) -------------------- */
 .services {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   width: 100%;
-  min-height: 100vh;
+  height: 100vh; /* full viewport height */
   margin: 0;
   padding: 0;
 }
 
 .card {
-  flex: 1;
-  min-height: 100vh;
   position: relative;
   overflow: hidden;
 }
 
-/* Background image with zoom on hover */
 .cardBackground {
-  position: absolute;
-  inset: 0;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
-  z-index: 0;
   transition: transform 0.5s ease-in-out;
 }
 
-/* Only background zooms */
 .card:hover .cardBackground {
   transform: scale(1.1);
 }
 
-/* Dark overlay for readability */
 .card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(0,0,0,0.35);
   z-index: 1;
 }
 
-/* Subtle shadow at the top */
 .card::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
   height: 120px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent);
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4), transparent);
   z-index: 2;
 }
 
-/* Content stays fixed (doesn't zoom) */
-.cardContent {
-  position: relative;
-  z-index: 3;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-}
-
-
-/* Card Content */
 .cardContent {
   position: absolute;
-  bottom: 80px;
+  bottom: 3rem;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  color: white;
-  z-index: 4;
+  z-index: 3;
+  color: #fff;
+  padding: 0 1rem;
 }
 
 .cardContent h2 {
-  font-weight: 500;
-  font-size: 2.7rem;
-  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: 1rem;
   text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
 }
 
 .button {
-  padding: 12px 28px;
+  padding: 0.7rem 1.6rem;
   border: 1px solid white;
   background: transparent;
   color: white;
-  font-weight: 200;
-  font-size: 1.1rem;
+  font-size: clamp(0.85rem, 2vw, 1.1rem);
   cursor: pointer;
   transition: 0.3s ease;
   text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
@@ -175,51 +170,27 @@ html, body {
 
 /* Tablets */
 @media (max-width: 1024px) {
-  .title { font-size: 3rem; }
-  .subtitle { font-size: 1.2rem; max-width: 700px; }
-  .cardContent h2 { font-size: 2.2rem; }
-  .services { flex-direction: column; }
-  .card { min-height: 80vh; }
+  .services {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .card { min-height: 70vh; }
 }
 
 /* Smartphones */
 @media (max-width: 768px) {
-  .overlay { padding: 10px; }
-  .logo img { height: 40px; }
-  .centerContent { top: 0; padding: 0 15px; }
-  .title { font-size: 2.4rem; }
-  .subtitle { font-size: 1rem; max-width: 100%; padding: 0 10px; }
-  .cardContent { bottom: 40px; }
-  .cardContent h2 { font-size: 1.8rem; }
-  .button { padding: 10px 20px; font-size: 0.95rem; }
+  .logo img { max-height: 60px; }
+  .cardContent { bottom: 2rem; }
+  .button { padding: 0.6rem 1.2rem; }
+  .card { min-height: 60vh; }
 }
 
 /* Small phones */
 @media (max-width: 480px) {
-  .title { font-size: 2rem; }
+  .logo img { max-height: 50px; }
+  .title { font-size: 1.8rem; }
   .subtitle { font-size: 0.9rem; }
-  .cardContent h2 { font-size: 1.5rem; }
-  .button { padding: 8px 16px; font-size: 0.85rem; }
-  .card { min-height: 70vh; }
-}
-
-
-.logo {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Center horizontally */
-  height: 100px; /* Adjust navbar/logo container height */
-}
-
-.logo img {
-  height: 180px;   /* Increase size */
-  width: 200px;    /* Keep aspect ratio */
-  object-fit: contain;
-  transition: transform 0.3s ease-in-out;
-  cursor: pointer;
-}
-
-/* Subtle zoom on hover */
-.logo img:hover {
-  transform: scale(1.5);
+  .card { min-height: 50vh; }
+  .cardContent h2 { font-size: 1.3rem; }
+  .button { padding: 0.5rem 1rem; font-size: 0.85rem; }
 }

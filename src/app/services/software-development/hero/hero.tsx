@@ -1,18 +1,17 @@
 import React from "react";
 import "./hero.css";
 
-// Import Contact and Footer components
+// Import components
 import Contact from "../contact/Contact";
 import Footer from "../footer/Footer";
 import FeaturedClients from "../featuredclients/FeaturedClients";
-import ClientsSpeak from "../clients/ClientsSpeak"; // ✅ Import ClientsSpeak
+import ClientsSpeak from "../clients/ClientsSpeak";
 
 const HeroSection = () => {
   const infoBoxes = [
     {
-      heading: "Portfolio Management",
-      description:
-        "Build a strong financial future with a carefully managed portfolio. Our experts continuously monitor your investments to ensure optimal growth, stability, and alignment with your risk profile.",
+      heading: "Software Services",
+      description: "",
       imgSrc: "/HeroSection.svg",
     },
     {
@@ -30,7 +29,7 @@ const HeroSection = () => {
     {
       heading: "Goal-Based Financial Planning",
       description:
-        "Financial planning is not one-size-fits-all. We help you define your objectives, whether it’s buying a home, funding education, or planning for a dream vacation, & create actionable strategies to reach them efficiently.",
+        "Financial planning is not one-size-fits-all. We help you define your objectives and create actionable strategies to reach them efficiently—whether it’s buying a home, funding education, or planning for a dream vacation.",
       imgSrc: "/image-27-1@2x.png",
     },
     {
@@ -40,9 +39,9 @@ const HeroSection = () => {
       imgSrc: "/image-27@2x.png",
     },
     {
-      heading: "Portfolio Management",
+      heading: "Wealth Growth",
       description:
-        "Build a strong financial future with a carefully managed portfolio. Our experts continuously monitor your investments to ensure optimal growth, stability, and alignment with your risk profile.",
+        "Ensure sustainable growth of your assets with long-term strategies tailored to your goals. Our experts help optimize and diversify your portfolio for consistent performance.",
       imgSrc: "/image-24@2x.png",
     },
   ];
@@ -50,27 +49,27 @@ const HeroSection = () => {
   const featureCards = [
     {
       icon: "💡",
-      title: "Reasearching",
+      title: "Researching",
       description:
-        "In-depth analysis of competitors and current market trends allows us to create strategies that not only stand out but also give our clients a competitive edge.",
+        "In-depth analysis of competitors and market trends allows us to create strategies that give our clients a competitive edge.",
     },
     {
       icon: "⚡",
       title: "Understanding",
       description:
-        "We begin by actively listening to our clients, analyzing their challenges, and identifying their unique needs to ensure our solutions align perfectly with their expectations.",
+        "We begin by actively listening to our clients, analyzing their challenges, and identifying their unique needs.",
     },
     {
       icon: "🔒",
       title: "Designing",
       description:
-        "We begin by actively listening to our clients, analyzing their challenges, and identifying their unique needs to ensure our solutions align perfectly with their expectations.",
+        "Our solutions are designed with precision and creativity to ensure functionality and user satisfaction.",
     },
     {
       icon: "🌍",
       title: "Ensuring",
       description:
-        "We prioritize efficiency by delivering projects on time while also providing continuous support and updates to maintain long-term success.",
+        "We prioritize efficiency by delivering projects on time while also providing continuous support and updates.",
     },
   ];
 
@@ -78,46 +77,48 @@ const HeroSection = () => {
     <div>
       {/* ================= Hero Section ================= */}
       <section id="hero" className="hero-section">
-        <div className="hero-background">
-          <div className="diagonal-shape"></div>
-        </div>
-
-        <div className="hero-container">
-          <div className="hero-left">
+        <img
+          src="/sd.webp"
+          alt="Software Development Services"
+          className="hero-image"
+        />
+        <div className="hero-overlay">
+          <div className="hero-content">
             <h1 className="hero-title">Software Services</h1>
             <p className="hero-description">
               Ayunext Solutions also provides professional financial services
-              through certified and registered partners. Our offerings include
+              through certified and registered partners. Our offerings include:
             </p>
           </div>
-
-          <div className="hero-right">{/* Optional hero image */}</div>
         </div>
       </section>
 
-      {/* ================= About Us Section ================= */}
+      {/* ================= Bento Grid Section ================= */}
       <div id="about-us" className="info-bento-grid">
         {infoBoxes.map((box, index) => (
           <div
-            className="info-bento-card"
             key={index}
+            className={`info-bento-card ${index === 0 ? "info-bento-card-large" : ""}`}
             style={{ backgroundImage: `url(${box.imgSrc})` }}
           >
             <div className="info-bento-overlay">
-              <h2>{box.heading}</h2>
-              <p>{box.description}</p>
+              <h2 className={index === 0 ? "hero-bento-title" : ""}>
+                {box.heading}
+              </h2>
+              {index !== 0 && <p>{box.description}</p>}
             </div>
           </div>
         ))}
       </div>
 
-      {/* ================= Full Image Section ================= */}
+      {/* ================= Feature Section ================= */}
       <section className="feature-section">
+        <h2 className="feature-heading">Our Approach</h2>
+
         <div className="feature-image-container">
-          <h2 className="feature-heading">Our Approach</h2>
           <img
             src="/OurApproach.svg"
-            alt="Feature"
+            alt="Our Approach"
             className="feature-main-image"
           />
           <div className="feature-blur-box">
@@ -132,7 +133,6 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Feature Cards Row */}
         <div className="feature-cards">
           {featureCards.map((card, index) => (
             <div className="feature-card" key={index}>
@@ -144,19 +144,18 @@ const HeroSection = () => {
         </div>
       </section>
 
+      {/* ================= Featured Clients ================= */}
       <FeaturedClients />
 
-      {/* ================= Clients Speak Section ================= */}
-            <section id="clients-speak">
-              <ClientsSpeak />
-            </section>
-      
+      {/* ================= Clients Speak ================= */}
+      <section id="clients-speak">
+        <ClientsSpeak />
+      </section>
+
       {/* ================= Contact Section ================= */}
       <section id="contact">
         <Contact />
       </section>
-
-      
 
       {/* ================= Footer ================= */}
       <Footer />
