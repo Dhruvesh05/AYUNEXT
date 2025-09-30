@@ -33,22 +33,20 @@
 
 /* Green Banner */
 .banner {
-  background: #F07E1B;
+  background-image: url('/Orangec.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 40px 30px;
   text-align: center;
   position: relative;
   /* border-radius: 18px 18px 0 0; */
 }
 
+/* Removing the circular decorations since we have the image background now */
 .banner::before,
 .banner::after {
-  content: "";
-  position: absolute;
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  background:  #F07E1B;
-  top: 20px;
+  display: none;
 }
 
 .banner::before {

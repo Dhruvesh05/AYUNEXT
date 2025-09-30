@@ -5,10 +5,9 @@ import styles from "./ClientsSpeak.module.css";
 import { FaQuoteLeft, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const testimonials = [
-  { quote: "Ayunext transformed our digital strategy completely!", name: "Alice Johnson", position: "E-commerce" },
-  { quote: "The team delivered beyond our expectations.", name: "Michael Smith", position: "Finance" },
-  { quote: "Innovative solutions that actually work.", name: "Sophie Lee", position: "Healthcare" },
-  { quote: "Professional, timely, and reliable.", name: "David Brown", position: "Education" },
+  { quote: "Ayunext built us a Customized Business Platform that perfectly streamlined our complex workflows. The efficiency gains were immediate and significant.", name: "", position: "Custom Platform" },
+  { quote: "Their team delivered a high-performance mobile application ahead of schedule. It's stable, intuitive, and exactly what we needed to engage our customers", name: "", position: "Mobile App" },
+  { quote: "We leveraged their AI-Powered Automation & Analytics to overhaul our data reporting. We now have insights in minutes that used to take days. Truly transformative", name: "", position: "Cloud/AI" },
 ];
 
 const stats = [
@@ -19,6 +18,7 @@ const stats = [
 
 export default function ClientsSpeak() {
   const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const length = testimonials.length;
   const carouselRef = useRef<HTMLDivElement>(null);
 
@@ -26,14 +26,21 @@ export default function ClientsSpeak() {
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
-  const nextTestimonial = () => setCurrent(current === length - 1 ? 0 : current + 1);
-  const prevTestimonial = () => setCurrent(current === 0 ? length - 1 : current - 1);
+  const nextTestimonial = () => setCurrent((prev) => (prev === length - 1 ? 0 : prev + 1));
+  const prevTestimonial = () => setCurrent((prev) => (prev === 0 ? length - 1 : prev - 1));
 
   useEffect(() => {
     if (carouselRef.current) {
       carouselRef.current.style.transform = `translateX(-${current * 100}%)`;
     }
   }, [current]);
+
+  // Auto-scroll effect
+  useEffect(() => {
+    if (isPaused) return; // pause autoplay on hover
+    const interval = setInterval(nextTestimonial, 3000); // every 3s
+    return () => clearInterval(interval);
+  }, [isPaused, current]);
 
   // Touch handlers for mobile swipe
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -75,7 +82,11 @@ export default function ClientsSpeak() {
 
         {/* Right Content - Carousel */}
         <div className={styles.rightContent}>
-          <div className={styles.testimonialWrapper}>
+          <div 
+            className={styles.testimonialWrapper}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
             <button className={styles.navButton} onClick={prevTestimonial}>
               <FaArrowLeft />
             </button>

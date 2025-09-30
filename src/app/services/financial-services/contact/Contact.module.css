@@ -33,22 +33,20 @@
 
 /* Green Banner */
 .banner {
-  background: #1A73E8;
+  background-image: url('/Bluec.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 40px 30px;
   text-align: center;
   position: relative;
   /* border-radius: 18px 18px 0 0; */
 }
 
+/* Removing the circular decorations since we have the image background now */
 .banner::before,
 .banner::after {
-  content: "";
-  position: absolute;
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  background:  #1A73E8;
-  top: 20px;
+  display: none;
 }
 
 .banner::before {
@@ -138,7 +136,7 @@ font-family: "DM Sans", sans-serif;
 .checkboxRow input[type="checkbox"] {
   width: 18px;
   height: 18px;
-  accent-color: #b9ff66;
+  accent-color: #008DD1;
 }
 
 .submitButton {

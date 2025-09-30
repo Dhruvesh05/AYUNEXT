@@ -11,66 +11,66 @@ import ClientsSpeak from "../clients/ClientsSpeak";
 const HeroSection = () => {
   const infoBoxes = [
     {
-      heading: "",
+      heading: "We develop tailored software solutions that meet the specific needs of businesses, focusing on leveraging technology to help companies grow and streamline operations.",
       description: "",
-      imgSrc: "/Group171.svg",
+      imgSrc: "/bntgs1.svg",
     },
     {
-      heading: "Retirement Planning",
+      heading: "Web & Mobile Application Development",
       description:
-        "Secure your golden years with a well-structured retirement plan. From estimating future needs to designing sustainable income streams, we ensure your retirement is financially comfortable and stress-free.",
-      imgSrc: "/image-25@2x.png",
+        "Building responsive, high-performance applications for all platforms to engage customers and enhance accessibility.",
+      imgSrc: "/Web&MobileApplicationDevelopment.png",
     },
     {
-      heading: "Tax Saving Solutions",
+      heading: "Customized Business Platforms",
       description:
-        "Minimize your tax burden with smart, legal strategies. We guide you through investment options and planning techniques that reduce liabilities and maximize your savings.",
-      imgSrc: "/image-26@2x.png",
+        "Creating bespoke enterprise systems and tools to manage specific business processes and operational workflows.",
+      imgSrc: "/CustomizedBusinessPlatforms.png",
     },
     {
-      heading: "Goal-Based Financial Planning",
+      heading: "Cloud-Based Solutions",
       description:
-        "Financial planning is not one-size-fits-all. We help you define your objectives and create actionable strategies to reach them efficiently—whether it’s buying a home, funding education, or planning for a dream vacation.",
-      imgSrc: "/image-27-1@2x.png",
+        "Implementing scalable and secure cloud infrastructure to optimize resources and enable remote access and collaboration.",
+      imgSrc: "/Cloud-BasedSolutions.png",
     },
     {
-      heading: "Mutual Fund Investments",
+      heading: "AI-Powered Automation & Analytics",
       description:
-        "Invest in a diversified range of mutual funds managed by experienced professionals. Our approach balances risk and reward, helping you grow your wealth steadily while keeping your financial goals in focus.",
-      imgSrc: "/image-27@2x.png",
+        "Integrating Artificial Intelligence for automating repetitive tasks, generating advanced insights, and improving decision-making.",
+      imgSrc: "/AI-PoweredAutomation&Analytics.png",
     },
     {
-      heading: "Wealth Growth",
+      heading: "Software Maintenance & Support",
       description:
-        "Ensure sustainable growth of your assets with long-term strategies tailored to your goals. Our experts help optimize and diversify your portfolio for consistent performance.",
-      imgSrc: "/image-24@2x.png",
+        "Ensuring the long-term reliability, security, and optimal performance of your software investments through continuous maintenance.",
+      imgSrc: "/SoftwareMaintenance&Support.png",
     },
   ];
 
   const featureCards = [
     {
       icon: <img src="/Icon.svg" alt="" />,
-      title: "Researching",
+      title: "1. Define & Research",
       description:
-        "In-depth analysis of competitors and market trends allows us to create strategies that give our clients a competitive edge.",
+        "We gain a deep understanding of your business needs, goals, and technical landscape.",
     },
     {
       icon: <img src="/chart.svg" alt="" />,
-      title: "Understanding",
+      title: "2. Design & Tailor",
       description:
-        "We begin by actively listening to our clients, analyzing their challenges, and identifying their unique needs.",
+        "We design a robust, secure, and user-centric solution tailored to your specific objectives.",
     },
     {
       icon: <img src="/magicpen.svg" alt="" />,
-      title: "Designing",
+      title: "3. Develop & Integrate",
       description:
-        "Our solutions are designed with precision and creativity to ensure functionality and user satisfaction.",
+        "We iteratively develop the solution, ensuring flawless integration and continuous testing for high performance.",
     },
     {
       icon: <img src="/shield-tick.svg" alt="" />,
-      title: "Ensuring",
+      title: "4. Deliver & Support",
       description:
-        "We prioritize efficiency by delivering projects on time while also providing continuous support and updates.",
+        "We ensure timely delivery and provide ongoing Software Maintenance & Support for sustained performance.",
     },
   ];
 
@@ -79,7 +79,7 @@ const HeroSection = () => {
       {/* ================= Hero Section ================= */}
       <section id="hero" className="hero-section">
         <img
-          src="/sd.webp"
+          src="/Green.svg"
           alt="Software Development Services"
           className="hero-image"
         />
@@ -87,29 +87,44 @@ const HeroSection = () => {
           <div className="hero-content">
             <h1 className="hero-title">Software Services</h1>
             <p className="hero-description">
-              Ayunext Solutions also provides professional financial services
-              through certified and registered partners. Our offerings include:
+              <h3> Beyond Code: Delivering End-to-End Solutions. </h3> Delivering End-to-End Solutions. 
+Ayunext Solutions builds custom software that drives efficiency and growth. We specialize in enterprise applications, mobile development, and integrating robust platforms, ensuring your technology scales with your ambition.
             </p>
+            <a
+              href="#contact"
+              className="hero-cta-button"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#contact')?.scrollIntoView({
+                  behavior: 'smooth'
+                });
+              }}
+            >
+              Get Advice
+            </a>
           </div>
         </div>
       </section>
 
       {/* ================= Bento Grid Section ================= */}
-      <div id="about-us" className="info-bento-grid">
-        {infoBoxes.map((box, index) => (
-          <div
-            key={index}
-            className={`info-bento-card ${index === 0 ? "info-bento-card-large" : ""}`}
-            style={{ backgroundImage: `url(${box.imgSrc})` }}
-          >
-            <div className="info-bento-overlay">
-              <h2 className={index === 0 ? "hero-bento-title" : ""}>
-                {box.heading}
-              </h2>
-              {index !== 0 && <p>{box.description}</p>}
+      <div id="about-us">
+        <h2 className="bento-section-title">Our Facilities</h2>
+        <div className="info-bento-grid">
+          {infoBoxes.map((box, index) => (
+            <div
+              key={index}
+              className={`info-bento-card ${index === 0 ? "info-bento-card-large" : ""}`}
+              style={{ backgroundImage: `url(${box.imgSrc})` }}
+            >
+              <div className="info-bento-overlay">
+                <h2 className={index === 0 ? "hero-bento-title" : ""}>
+                  {box.heading}
+                </h2>
+                {index !== 0 && <p>{box.description}</p>}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {/* ================= Feature Section ================= */}
@@ -129,12 +144,7 @@ const HeroSection = () => {
               />
               <div className="feature-blur-box">
                 <p>
-                  We follow a client-first approach built on understanding,
-                  research, customization, and long-term support. By carefully
-                  analyzing client needs and market trends, we craft tailored
-                  strategies that deliver measurable results. With a focus on
-                  efficiency, timely delivery, and continuous support, we ensure
-                  lasting success for every project.
+                  Our core focus is on delivering business-focused technology. The approach is highly collaborative, ensuring we develop tailored software solutions that meet your specific needs. We dedicate time to upfront definition and design to ensure your platform is robust and scalable, specializing in everything from Cloud-Based Solutions to AI-Powered Automation. Our process culminates in flawless deployment and comprehensive Software Maintenance & Support.
                 </p>
               </div>
             </div>

@@ -232,7 +232,7 @@ body {
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1rem;
-  background: radial-gradient(circle, #717171 0%, #000 100%);
+  background: radial-gradient(circle, #ffffff 0%, #ffffff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -400,6 +400,7 @@ body {
 @media (max-width: 600px) {
   .hero-title {
     font-size: 2rem;
+    color: #000000;
   }
 
   .hero-description {

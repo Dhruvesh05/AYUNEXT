@@ -1,76 +1,76 @@
 import React from "react";
+import Image from "next/image";
 import "./hero.css";
 
-// Import Contact and Footer components
+// Import components
 import Contact from "../contact/Contact";
 import Footer from "../footer/Footer";
 import FeaturedClients from "../featuredclients/FeaturedClients";
-import ClientsSpeak from "../clients/ClientsSpeak"; // ✅ Import ClientsSpeak
+import ClientsSpeak from "../clients/ClientsSpeak";
 
 const HeroSection = () => {
   const infoBoxes = [
     {
-      heading: "Portfolio Management",
-      description:
-        "Build a strong financial future with a carefully managed portfolio. Our experts continuously monitor your investments to ensure optimal growth, stability, and alignment with your risk profile.",
-      imgSrc: "/HeroSection.svg",
-    },
-    {
-      heading: "Retirement Planning",
-      description:
-        "Secure your golden years with a well-structured retirement plan. From estimating future needs to designing sustainable income streams, we ensure your retirement is financially comfortable and stress-free.",
-      imgSrc: "/image-25@2x.png",
-    },
-    {
-      heading: "Tax Saving Solutions",
-      description:
-        "Minimize your tax burden with smart, legal strategies. We guide you through investment options and planning techniques that reduce liabilities and maximize your savings.",
-      imgSrc: "/image-26@2x.png",
-    },
-    {
-      heading: "Goal-Based Financial Planning",
-      description:
-        "Financial planning is not one-size-fits-all. We help you define your objectives, whether it’s buying a home, funding education, or planning for a dream vacation, & create actionable strategies to reach them efficiently.",
-      imgSrc: "/image-27-1@2x.png",
+      heading: "We provide professional financial services through certified and registered partners to help clients achieve financial independence and secure their financial future.",
+      description: "",
+      imgSrc: "/bntgf1.svg",
     },
     {
       heading: "Mutual Fund Investments",
       description:
-        "Invest in a diversified range of mutual funds managed by experienced professionals. Our approach balances risk and reward, helping you grow your wealth steadily while keeping your financial goals in focus.",
-      imgSrc: "/image-27@2x.png",
+        "Guiding clients on strategic investments in diversified mutual funds to grow capital and align with risk tolerance.",
+      imgSrc: "f1.png",
     },
     {
-      heading: "Portfolio Management",
+      heading: "Goal-Based Financial Planning",
       description:
-        "Build a strong financial future with a carefully managed portfolio. Our experts continuously monitor your investments to ensure optimal growth, stability, and alignment with your risk profile.",
-      imgSrc: "/image-24@2x.png",
+        "Creating structured plans focused on achieving specific personal or business financial milestones, such as buying a house or funding education.",
+      imgSrc: "f2.png",
+    },
+    {
+      heading: "Tax Saving Solutions",
+      description:
+        "Advising on compliant and effective investment and planning strategies to legally minimize tax liabilities.",
+      imgSrc: "/f3.png",
+    },
+    {
+      heading: "Wealth Creation and Portfolio Management",
+      description:
+        "Designing and managing diversified investment portfolios aimed at long-term capital growth and wealth accumulation.",
+      imgSrc: "/f4.png",
+    },
+    {
+      heading: "Retirement Planning",
+      description:
+        "Developing tailored strategies to ensure financial security and independence during retirement years.",
+      imgSrc: "/f5.png",
     },
   ];
 
   const featureCards = [
     {
-      icon: "💡",
-      title: "Reasearching",
+      icon: <img src="/Icon.svg" alt="" />,
+      title: "1. Assess & Understand",
       description:
-        "In-depth analysis of competitors and current market trends allows us to create strategies that not only stand out but also give our clients a competitive edge.",
+        "We clearly understand your financial requirements and current situation to form a planning baseline.",
     },
     {
-      icon: "⚡",
-      title: "Understanding",
+      icon: <img src="/chart.svg" alt="" />,
+      title: "2. Define & Plan",
       description:
-        "We begin by actively listening to our clients, analyzing their challenges, and identifying their unique needs to ensure our solutions align perfectly with their expectations.",
+        "We define your objectives and design a Goal-Based Financial Planning strategy for long-term independence.",
     },
     {
-      icon: "🔒",
-      title: "Designing",
+      icon: <img src="/magicpen.svg" alt="" />,
+      title: "3. Strategize & Implement",
       description:
-        "We begin by actively listening to our clients, analyzing their challenges, and identifying their unique needs to ensure our solutions align perfectly with their expectations.",
+        "We provide continuous support and portfolio management to keep your plan on track as goals change.",
     },
     {
-      icon: "🌍",
-      title: "Ensuring",
+      icon: <img src="/shield-tick.svg" alt="" />,
+      title: "4. Monitor & Adjust",
       description:
-        "We prioritize efficiency by delivering projects on time while also providing continuous support and updates to maintain long-term success.",
+        "We ensure timely delivery and provide ongoing Software Maintenance & Support for sustained performance.",
     },
   ];
 
@@ -78,85 +78,99 @@ const HeroSection = () => {
     <div>
       {/* ================= Hero Section ================= */}
       <section id="hero" className="hero-section">
-        <div className="hero-background">
-          <div className="diagonal-shape"></div>
-        </div>
-
-        <div className="hero-container">
-          <div className="hero-left">
+        <img
+          src="/Blue.svg"
+          alt="Software Development Services"
+          className="hero-image"
+        />
+        <div className="hero-overlay">
+          <div className="hero-content">
             <h1 className="hero-title">Financial Services</h1>
             <p className="hero-description">
-              Ayunext Solutions also provides professional financial services
-              through certified and registered partners. Our offerings include
+              <h3> Secure Your Financial Future.</h3> Ayunext Solutions provides professional financial services through certified and registered partners. Our offerings include Goal-Based Financial Planning, Wealth Creation and Portfolio Management, and Tax Saving Solutions to help you achieve financial independence.
             </p>
+            <a
+              href="#contact"
+              className="hero-cta-button"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#contact')?.scrollIntoView({
+                  behavior: 'smooth'
+                });
+              }}
+            >
+              Get Advice
+            </a>
           </div>
-
-          <div className="hero-right">{/* Optional hero image */}</div>
         </div>
       </section>
 
-      {/* ================= About Us Section ================= */}
-      <div id="about-us" className="info-bento-grid">
-        {infoBoxes.map((box, index) => (
-          <div
-            className="info-bento-card"
-            key={index}
-            style={{ backgroundImage: `url(${box.imgSrc})` }}
-          >
-            <div className="info-bento-overlay">
-              <h2>{box.heading}</h2>
-              <p>{box.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* ================= Full Image Section ================= */}
-      <section className="feature-section">
-        <div className="feature-image-container">
-          <h2 className="feature-heading">Our Approach</h2>
-          <img
-            src="/OurApproach.svg"
-            alt="Feature"
-            className="feature-main-image"
-          />
-          <div className="feature-blur-box">
-            <p>
-              We follow a client-first approach built on understanding,
-              research, customization, and long-term support. By carefully
-              analyzing client needs and market trends, we craft tailored
-              strategies that deliver measurable results. With a focus on
-              efficiency, timely delivery, and continuous support, we ensure
-              lasting success for every project.
-            </p>
-          </div>
-        </div>
-
-        {/* Feature Cards Row */}
-        <div className="feature-cards">
-          {featureCards.map((card, index) => (
-            <div className="feature-card" key={index}>
-              <div className="feature-icon">{card.icon}</div>
-              <h4>{card.title}</h4>
-              <p>{card.description}</p>
+      {/* ================= Bento Grid Section ================= */}
+      <div id="about-us">
+        <h2 className="bento-section-title">Our Facilities</h2>
+        <div className="info-bento-grid">
+          {infoBoxes.map((box, index) => (
+            <div
+              key={index}
+              className={`info-bento-card ${index === 0 ? "info-bento-card-large" : ""}`}
+              style={{ backgroundImage: `url(${box.imgSrc})` }}
+            >
+              <div className="info-bento-overlay">
+                <h2 className={index === 0 ? "hero-bento-title" : ""}>
+                  {box.heading}
+                </h2>
+                {index !== 0 && <p>{box.description}</p>}
+              </div>
             </div>
           ))}
         </div>
-      </section>
+      </div>
 
+      {/* ================= Feature Section ================= */}
+      <section className="feature-section">
+        <div className="feature-container">
+          <h2 className="feature-heading">Our Approach</h2>
+
+          <div className="feature-content-wrapper">
+            <div className="feature-image-container">
+              <Image
+                src="/OurApproach.svg"
+                alt="Our Approach"
+                className="feature-main-image"
+                width={1200}
+                height={600}
+                priority
+              />
+              <div className="feature-blur-box">
+                <p>
+                  Our approach to finance is built on reliability and trust, delivered through certified and registered partners. We provide comprehensive, goal-based guidance to help secure your financial future. This involves a disciplined process of assessing your current standing, defining your financial goals (like Retirement Planning ), and implementing expert solutions like Tax Saving Solutions and Wealth Creation. We provide the expertise needed for financial independence, allowing you to focus on your business.
+                </p>
+              </div>
+            </div>
+
+            <div className="feature-cards">
+              {featureCards.map((card, index) => (
+                <div className="feature-card" key={index}>
+                  <div className="feature-icon">{card.icon}</div>
+                  <h4>{card.title}</h4>
+                  <p>{card.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>      {/* ================= Featured Clients ================= */}
       <FeaturedClients />
 
-      {/* ================= Clients Speak Section ================= */}
-            <section id="clients-speak">
-              <ClientsSpeak />
-            </section>
-      
+      {/* ================= Clients Speak ================= */}
+      <section id="clients-speak">
+        <ClientsSpeak />
+      </section>
+
       {/* ================= Contact Section ================= */}
       <section id="contact">
         <Contact />
       </section>
-
-      
 
       {/* ================= Footer ================= */}
       <Footer />

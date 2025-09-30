@@ -3,9 +3,8 @@
 
 /* ==================== Clients Section ==================== */
 .clientsSection {
-  background: linear-gradient(135deg, #1E90FF 0%, #1A73E8 100%);
+  background: linear-gradient(135deg, #008DD1 0%, #008DD1 100%);
   padding: 80px 20px;
-  min-height: 500px;
   color: white;
   font-family: "DM Sans", sans-serif;
   box-sizing: border-box;
@@ -73,20 +72,18 @@
 /* ==================== Right Content - Carousel ==================== */
 .rightContent {
   flex: 1 1 300px;
-  max-width: 600px; /* desktop max width */
+  max-width: 650px;
   position: relative;
   display: flex;
-  justify-content: flex-end; /* align carousel to right on large screens */
+  justify-content: flex-end;
 }
 
 .testimonialWrapper {
   display: flex;
   align-items: center;
-  gap: 20px;
   position: relative;
   width: 100%;
   overflow: hidden;
-  max-width: 100%; /* ensure it doesn't exceed parent */
 }
 
 .carouselViewport {
@@ -97,33 +94,27 @@
 
 .carouselTrack {
   display: flex;
-  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  gap: 20px; /* 🔹 spacing between cards */
+  padding: 0 1x0px; /* 🔹 small padding so edges don’t cut */
+  transition: transform 0.5s ease;
   will-change: transform;
+  box-sizing: border-box;
 }
 
 /* Testimonial Card */
 .testimonialCard {
   background: white;
-  padding: 40px 35px;
+  padding: 35px 28px;
   color: #333;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  min-width: 100%;
-  flex-shrink: 0;
+  flex: 0 0 calc(100% - 20px); /* 🔹 ensures full card fits viewport minus gap */
   display: flex;
   flex-direction: column;
   position: relative;
-  min-height: 280px;
+  min-height: 260px;
   max-height: 320px;
-  overflow: hidden;
   box-sizing: border-box;
-  border-radius: 0px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-
-.testimonialCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
 /* Quote Icon */
@@ -131,8 +122,7 @@
   position: absolute;
   top: 20px;
   left: 25px;
-  color: #1E90FF;
-  z-index: 1;
+  color: #008DD1;
 }
 
 .quoteIcon svg {
@@ -245,84 +235,50 @@
 }
 
 /* ==================== Responsive ==================== */
-/* ==================== Right Content - Carousel ==================== */
-.rightContent {
-  flex: 1 1 300px;
-  max-width: 600px; /* desktop max width */
-  position: relative;
-  display: flex;
-  justify-content: flex-end; /* align carousel to right on large screens */
-}
-
-.testimonialWrapper {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  max-width: 100%; /* ensure it doesn't exceed parent */
-}
-
-.carouselViewport {
-  overflow: hidden;
-  flex: 1 1 100%;
-  position: relative;
-}
-
-.carouselTrack {
-  display: flex;
-  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: transform;
-}
-
-/* Testimonial Card */
-.testimonialCard {
-  background: white;
-  padding: 40px 35px;
-  color: #333;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  min-width: 100%;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  min-height: 280px;
-  max-height: 320px;
-  overflow: hidden;
-  box-sizing: border-box;
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* ==================== Responsive ==================== */
-@media (max-width: 1024px) {
-  .container { gap: 60px; }
-  .stats { justify-content: flex-start; gap: 30px; }
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+  .rightContent {
+    justify-content: center;
+    max-width: 100%;
+  }
+  .testimonialCard {
+    flex: 0 0 100%; /* 🔹 card takes full width on small screens */
+    min-height: 240px;
+    max-height: 300px;
+  }
 }
 
 @media (max-width: 768px) {
-  .container { flex-direction: column; gap: 40px; }
-  .title { font-size: 2.5rem; text-align: center; }
-  .subtitle { font-size: 16px; text-align: center; }
-  .stats { justify-content: center; gap: 20px; }
-  .statNumber { font-size: 36px; }
-  .statLabel { font-size: 14px; }
-  .testimonialCard { padding: 30px 25px; min-height: 250px; max-height: 300px; }
-  .quote { font-size: 0.95rem; line-height: 1.55; margin-bottom: 18px; }
-  .testimonialWrapper { gap: 15px; }
-  .rightContent { justify-content: center; max-width: 100%; } /* center carousel on tablets */
+  .testimonialCard {
+    padding: 25px 20px;
+    min-height: 220px;
+    max-height: 270px;
+  }
+  .quote {
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+  .navButton {
+    width: 42px;
+    height: 42px;
+  }
+  .navButton svg {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 @media (max-width: 480px) {
-  .container { gap: 30px; padding: 0 12px; }
-  .title { font-size: 1.8rem; }
-  .stats { flex-direction: column; align-items: center; gap: 15px; }
-  .statNumber { font-size: 28px; }
-  .statLabel { font-size: 13px; }
-  .testimonialCard { padding: 20px 15px; min-height: 200px; max-height: 250px; }
-  .quote { font-size: 0.85rem; line-height: 1.45; margin-bottom: 15px; }
-  .navButton { display: none; }
-  .testimonialWrapper { gap: 10px; }
-  .rightContent { justify-content: center; } /* full width on mobile */
+  .testimonialCard {
+    padding: 18px 14px;
+    min-height: 200px;
+    max-height: 240px;
+  }
+  .navButton {
+    display: none;
+  }
 }

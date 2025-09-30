@@ -22,7 +22,7 @@ export default function FeaturedClients() {
   return (
     <section id="featured-clients" className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.heading}>Featured Clients</h2>
+        <h2 className={styles.heading}></h2>
 
         {/* <div className={styles.arcWrapper}>
           {clients.map((client, index) => (

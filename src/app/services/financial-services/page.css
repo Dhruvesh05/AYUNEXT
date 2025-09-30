@@ -95,7 +95,7 @@ body {
   bottom: -1px;
   height: 1px;
   width: 100%;
-  background-color: #4982fd;
+  background-color: #008DD1;
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.3s ease;
@@ -107,7 +107,7 @@ body {
 }
 
 .nav-link:hover {
-  color: #4982fd;
+  color: #008DD1;
 }
 
 /* Dropdown */
@@ -157,7 +157,7 @@ body {
 
 
 .dropdown-arrow:hover {
-  color: #0070f3;
+  color: #008DD1;
 }
 
 /* Hamburger */
@@ -232,7 +232,7 @@ body {
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1rem;
-  background: radial-gradient(circle, #717171 0%, #000 100%);
+  background: radial-gradient(circle, #ffffff 0%, #ffffff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -400,6 +400,7 @@ body {
 @media (max-width: 600px) {
   .hero-title {
     font-size: 2rem;
+    color: #000000;
   }
 
   .hero-description {

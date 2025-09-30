@@ -400,6 +400,7 @@ body {
 @media (max-width: 600px) {
   .hero-title {
     font-size: 2rem;
+    color: #000000;
   }
 
   .hero-description {

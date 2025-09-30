@@ -17,10 +17,8 @@ export default function Home() {
             <img src="/Ayunextlogo.png" alt="Ayunext Solutions" />
           </div></h1>
           <p className={styles.subtitle}>
-            Ayunext Solutions delivers business-focused technology and financial
-            services to help companies grow, streamline operations, and secure
-            their financial future. Our mission is to combine innovation with
-            practical solutions that drive measurable results for our clients.
+            Powering Businesses with The Infinite Integration of Technology & Services.
+            <h3>Explore the services that matter most to you.</h3>
           </p>
         </div>
       </div>

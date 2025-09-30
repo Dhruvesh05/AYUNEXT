@@ -73,13 +73,20 @@ html, body {
 }
 
 .subtitle {
-  font-weight: 300;
-  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  font-weight: 400;
+  font-size: clamp(0.9rem, 4vw, 2.2rem);
   line-height: 1.7;
   max-width: 800px;
   margin: 0 auto;
+  font-style: italic;
 }
-
+.subtitle h3 {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: clamp(1rem, 3vw, 2.2rem);
+  color: #ffffff;
+  font-style: normal;
+}
 /* -------------------- Services Section (Grid) -------------------- */
 .services {
   display: grid;
@@ -88,6 +95,7 @@ html, body {
   height: 100vh; /* full viewport height */
   margin: 0;
   padding: 0;
+  gap: 0;
 }
 
 .card {
@@ -96,11 +104,14 @@ html, body {
 }
 
 .cardBackground {
-  width: 100%;
+  width: 110%;
   height: 100%;
   background-size: cover;
   background-position: center;
   transition: transform 0.5s ease-in-out;
+  position: absolute;
+  left: -5%;
+  top: 0;
 }
 
 .card:hover .cardBackground {
@@ -111,7 +122,7 @@ html, body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.35);
+  background: rgba(0,0,0,0.1);
   z-index: 1;
 }
 
