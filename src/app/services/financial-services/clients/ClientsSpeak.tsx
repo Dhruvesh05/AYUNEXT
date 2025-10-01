@@ -6,7 +6,7 @@ import { FaQuoteLeft, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const testimonials = [
   { quote: "Working with their certified partners gave us the clarity we needed for our future. We now have a solid plan for both Retirement Planning and Wealth Creation.", name: "", position: "Financial Planning" },
-  { quote: "The guidance on Tax Saving Solutions and Mutual Fund Investments was invaluable. We feel much more secure about our portfolio and confident in our financial decisions", name: "", position: "Tax & Investment" },
+  { quote: "The guidance on Tax Saving Solutions and Mutual Fund Investments was invaluable. We feel much more secure about our portfolio and confident in our financial decisions.", name: "", position: "Tax & Investment" },
   { quote: "We used their Goal-Based Financial Planning to fund a major business expansion. They made a complex goal achievable with a clear, step-by-step strategy.", name: "", position: "Goal-Based" },
 ];
 

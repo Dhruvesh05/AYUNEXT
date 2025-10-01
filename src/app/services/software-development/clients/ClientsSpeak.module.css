@@ -95,7 +95,7 @@
 .carouselTrack {
   display: flex;
   gap: 20px; /* 🔹 spacing between cards */
-  padding: 0 10px; /* 🔹 small padding so edges don’t cut */
+  padding: 0 1x0px; /* 🔹 small padding so edges don’t cut */
   transition: transform 0.5s ease;
   will-change: transform;
   box-sizing: border-box;
