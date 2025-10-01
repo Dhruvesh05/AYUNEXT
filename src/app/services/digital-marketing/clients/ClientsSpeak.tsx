@@ -10,11 +10,6 @@ const testimonials = [
   { quote: "The Paid Advertising Campaigns they ran were highly efficient. They optimized our spending and significantly lowered our customer acquisition cost. Excellent ROI.", name: "", position: "Paid Ads" },
 ];
 
-const stats = [
-  { number: "50+", label: "Clients Served" },
-  { number: "95%", label: "Positive Feedback" },
-  { number: "100+", label: "Successful Projects" },
-];
 
 export default function ClientsSpeak() {
   const [current, setCurrent] = useState(0);
@@ -70,14 +65,14 @@ export default function ClientsSpeak() {
           </p>
 
           {/* Stats Section */}
-          <div className={styles.stats}>
+          {/* <div className={styles.stats}>
             {stats.map((s, idx) => (
               <div key={idx} className={styles.statItem}>
                 <div className={styles.statNumber}>{s.number}</div>
                 <div className={styles.statLabel}>{s.label}</div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
 
         {/* Right Content - Carousel */}

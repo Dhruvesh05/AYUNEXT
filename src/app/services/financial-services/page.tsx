@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import "./page.css";
 
-import HeroSection from "./hero/hero"; // ✅ fixed import
+import HeroSection from "./hero/hero";
 
 export default function SoftwareDevelopment() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -19,13 +19,15 @@ export default function SoftwareDevelopment() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close dropdown if clicked outside
+  // Close menu/dropdown if clicked outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
       if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
+        !dropdownRef.current?.contains(target) &&
+        !document.querySelector(".hamburger")?.contains(target)
       ) {
+        setMenuOpen(false);
         setDropdownOpen(false);
       }
     };
@@ -33,54 +35,32 @@ export default function SoftwareDevelopment() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Smooth scroll helper
-  const handleSmoothScroll = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    id: string
-  ) => {
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      setMenuOpen(false);
+      setMenuOpen(false); // close mobile menu
     }
   };
 
   return (
     <>
-      {/* ================= NAVBAR ================= */}
       <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
         <div className="nav-container">
-          {/* Logo */}
           <div className="nav-logo">
             <a href="#hero" onClick={(e) => handleSmoothScroll(e, "hero")}>
               <img src="/Ayunextlogo.png" alt="Ayunext Logo" />
             </a>
           </div>
 
-          {/* Nav Menu */}
           <ul className={`nav-menu ${menuOpen ? "active" : ""}`}>
             <li>
-              <a
-                href="#hero"
-                className="nav-link"
-                onClick={(e) => handleSmoothScroll(e, "hero")}
-              >
-                Home
-              </a>
+              <a href="#hero" className="nav-link" onClick={(e) => handleSmoothScroll(e, "hero")}>Home</a>
             </li>
-
             <li>
-              <a
-                href="#about-us"
-                className="nav-link"
-                onClick={(e) => handleSmoothScroll(e, "about-us")}
-              >
-                About Us
-              </a>
+              <a href="#about-us" className="nav-link" onClick={(e) => handleSmoothScroll(e, "about-us")}>About Us</a>
             </li>
-
-            {/* Services + Dropdown */}
             <li className="services-nav" ref={dropdownRef}>
               <a className="nav-link">
                 <button
@@ -90,8 +70,6 @@ export default function SoftwareDevelopment() {
                   Services ▼
                 </button>
               </a>
-
-              {/* Dropdown Menu */}
               <div className={`dropdown-menu ${dropdownOpen ? "open" : ""}`}>
                 <a
                   href="/services/software-development"
@@ -131,32 +109,12 @@ export default function SoftwareDevelopment() {
                 </a>
               </div>
             </li>
-
-            {/* <li>
-              <a
-                href="#ClientsSpeak"
-                className="nav-link"
-                onClick={(e) => handleSmoothScroll(e, "ClientsSpeak")}
-              >
-                Testimonials
-              </a>
-            </li> */}
             <li>
-              <a
-                href="#contact"
-                className="nav-link"
-                onClick={(e) => handleSmoothScroll(e, "contact")}
-              >
-                Contact
-              </a>
+              <a href="#contact" className="nav-link" onClick={(e) => handleSmoothScroll(e, "contact")}>Contact</a>
             </li>
           </ul>
 
-          {/* Hamburger */}
-          <div
-            className={`hamburger ${menuOpen ? "active" : ""}`}
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
+          <div className={`hamburger ${menuOpen ? "active" : ""}`} onClick={() => setMenuOpen(!menuOpen)}>
             <span></span>
             <span></span>
             <span></span>
@@ -164,7 +122,6 @@ export default function SoftwareDevelopment() {
         </div>
       </nav>
 
-      {/* ================= OTHER SECTIONS ================= */}
       <HeroSection />
     </>
   );

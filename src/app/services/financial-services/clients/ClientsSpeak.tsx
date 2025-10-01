@@ -10,11 +10,7 @@ const testimonials = [
   { quote: "We used their Goal-Based Financial Planning to fund a major business expansion. They made a complex goal achievable with a clear, step-by-step strategy.", name: "", position: "Goal-Based" },
 ];
 
-const stats = [
-  { number: "50+", label: "Clients Served" },
-  { number: "95%", label: "Positive Feedback" },
-  { number: "100+", label: "Successful Projects" },
-];
+
 
 export default function ClientsSpeak() {
   const [current, setCurrent] = useState(0);
@@ -70,14 +66,14 @@ export default function ClientsSpeak() {
           </p>
 
           {/* Stats Section */}
-          <div className={styles.stats}>
+          {/* <div className={styles.stats}>
             {stats.map((s, idx) => (
               <div key={idx} className={styles.statItem}>
                 <div className={styles.statNumber}>{s.number}</div>
                 <div className={styles.statLabel}>{s.label}</div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
 
         {/* Right Content - Carousel */}

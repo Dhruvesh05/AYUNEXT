@@ -125,7 +125,7 @@
 @media (max-width: 768px) {
   .carouselTrack {
     gap: 1.5rem;
-    animation: scroll 22s linear infinite;
+    animation: scroll 12s linear infinite;
   }
 
   .card {

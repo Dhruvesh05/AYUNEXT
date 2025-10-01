@@ -4,54 +4,43 @@ import Image from "next/image";
 import styles from "./FeaturedClients.module.css";
 
 const clients = [
-  { name: "IBM", logo: "/logos/ibm.svg" },
-  { name: "Amazon", logo: "/logos/amazon.svg" },
-  { name: "Cisco", logo: "/logos/cisco.svg" },
-  { name: "Intel", logo: "/logos/intel.svg" },
-  { name: "Google", logo: "/logos/google.svg" },
-  { name: "Flex", logo: "/logos/flex.svg" },
-  { name: "SONY", logo: "/logos/sony.svg" },
-  { name: "Deloitte", logo: "/logos/deloitte.svg" },
-  { name: "VISA", logo: "/logos/visa.svg" },
-  { name: "GE", logo: "/logos/ge.svg" },
-  { name: "Hitachi", logo: "/logos/hitachi.svg" },
-  { name: "Oracle", logo: "/logos/oracle.svg" },
+  { name: "IBM", logo: "/1.png" },
+  { name: "Amazon", logo: "/2.png" },
+  { name: "Cisco", logo: "/3.png" },
+  { name: "Intel", logo: "/4.png" },
+  { name: "Google", logo: "/5.png" },
+  { name: "Flex", logo: "/6.png" },
+  { name: "SONY", logo: "/7.png" },
 ];
 
 export default function FeaturedClients() {
   return (
     <section id="featured-clients" className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.heading}></h2>
+        <h2 className={styles.heading}>Our Trusted Clients</h2>
 
-        {/* <div className={styles.arcWrapper}>
-          {clients.map((client, index) => (
-            <div 
-              key={index} 
-              className={`${styles.card} ${
-                client.name === "SONY" || client.name === "VISA" ? styles.highlight : ""
-              }`}
-            >
-              <Image 
-                src={client.logo} 
-                alt={client.name} 
-                className={styles.logo}
-                width={120}
-                height={120}
-                priority={true}
-                style={{
-                  maxWidth: "100%",
-                  height: "auto",
-                }}
-              />
-            </div>
-          ))}
-        </div> */}
+        {/* ✅ Auto-Scrolling Carousel */}
+        <div className={styles.carousel}>
+          <div className={styles.carouselTrack}>
+            {[...clients, ...clients].map((client, index) => (
+              <div key={index} className={styles.card}>
+                <Image
+                  src={client.logo}
+                  alt={client.name}
+                  className={styles.logo}
+                  width={140}
+                  height={140}
+                  priority={true}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
 
         <div className={styles.textBlock}>
           <h3 className={styles.subtitle}>Businesses Who Grow with Us</h3>
           <p className={styles.description}>
-            We’ve helped 100+ businesses across industries achieve growth,
+            We’ve helped businesses across industries achieve growth,
             efficiency, and financial success.
           </p>
         </div>

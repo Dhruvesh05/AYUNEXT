@@ -331,7 +331,7 @@ html {
   font-size: clamp(32px, 5vw, 64px);
   font-weight: bold;
   margin-bottom: clamp(0.5rem, 2vw, 1rem);
-  color: #000;
+  color: #ffffff;
 }
 
 .hero-description {

@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap");
 
-
-
+/* 🌟 Section */
 .section {
   min-height: 100vh;
   width: 100%;
@@ -11,25 +10,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #fff;
 }
 
 .section::before {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url('/Group 162-1.svg');
-  background-size: 100% 100%;
+  inset: 0;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   z-index: 0;
 }
 
+/* 🌟 Container */
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   text-align: center;
   position: relative;
@@ -37,173 +34,115 @@
   padding: 2rem;
 }
 
+/* 🌟 Heading */
 .heading {
   font-family: "DM Sans", sans-serif;
   font-weight: 600;
   color: #191A23;
   font-size: clamp(2rem, 3vw, 3rem);
   margin-bottom: clamp(2rem, 4vw, 4rem);
-  text-align: center;
   line-height: 1.2;
-  position: relative;
-  display: inline-block;
-  margin-top: 220px;
+  text-align: center;
 }
 
-
-.heading::after {
-  /* content: ""; */
-  display: block;
-  width: 80px;
-  height: 3px;
-  background: #111827;
-  margin: 0.75rem auto 0;
-  border-radius: 2px;
-}
-
-/* ✅ Arc Layout */
-.arcWrapper {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(120px, 1fr));
-  gap: clamp(1rem, 2vw, 2rem);
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto 3rem;
-  padding: 0 1rem;
+/* 🌟 Carousel */
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 3rem;
   position: relative;
 }
 
-@media (min-width: 640px) {
-  .arcWrapper {
-    grid-template-columns: repeat(3, minmax(120px, 1fr));
+.carouselTrack {
+  display: flex;
+  gap: 3rem; /* thoda zyada spacing */
+  animation: scroll 15s linear infinite;
+  will-change: transform;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 
-@media (min-width: 768px) {
-  .arcWrapper {
-    grid-template-columns: repeat(4, minmax(120px, 1fr));
-  }
-}
-
-@media (min-width: 1024px) {
-  .arcWrapper {
-    grid-template-columns: repeat(6, minmax(120px, 1fr));
-  }
-}
-
+/* 🌟 Card */
 .card {
-  background: #fff;
-  padding: clamp(0.5rem, 1vw, 1rem);
-  aspect-ratio: 1;
+  flex: 0 0 auto;
+  background: transparent;
+  padding: 1.5rem;
+  min-width: 240px;  /* ✅ bada card */
+  max-width: 300px;  /* ✅ bada card */
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.3s ease;
-  position: relative;
-  width: 100%;
-  min-height: 120px;
-}
-
-.highlight {
-  background: rgba(220, 255, 220, 0.5);
+  transition: transform 0.4s ease;
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  background: #008DD1;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transform: scale(1.1);
 }
 
-.highlight {
-  background: #008DD1;
-}
-
+/* 🌟 Logo */
 .logo {
-  width: clamp(60px, 90%, 120px) !important;
-  height: clamp(60px, 90%, 120px) !important;
-  object-fit: contain !important;
-  transition: all 0.3s ease;
-  padding: 0.5rem;
+  width: 100%;
+  height: auto;
+  max-height: 180px; /* ✅ logo aur bada */
+  object-fit: contain;
+  transition: transform 0.4s ease;
 }
 
+.logo:hover {
+  transform: scale(1.2); /* ✅ hover pe thoda aur zoom */
+}
+
+/* 🌟 Text Block */
 .textBlock {
-  text-align: center;
-  max-width: 800px;
-  margin: 2rem auto 0;
-}
-
-/* ✅ Arc Effect – Symmetrical */
-.arcWrapper .card:nth-child(1),
-.arcWrapper .card:nth-child(8) {
-  transform: translateY(40px);
-}
-
-.arcWrapper .card:nth-child(2),
-.arcWrapper .card:nth-child(7) {
-  transform: translateY(20px);
-}
-
-.arcWrapper .card:nth-child(3),
-.arcWrapper .card:nth-child(6) {
-  transform: translateY(0px);
-}
-
-.arcWrapper .card:nth-child(4),
-.arcWrapper .card:nth-child(5) {
-  transform: translateY(-20px);
-}
-
-/* ✅ Subtitle & Description */
-.textBlock {
-  max-width: 600px;
+  max-width: 650px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .subtitle {
-  font-size: 30px;
-  font-weight: 450;
+  font-size: 34px;
+  font-weight: 500;
   color: #111827;
   margin-bottom: 0.5rem;
 }
 
 .description {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 1.5;
   color: #191A23;
-
-text-align: center;
-font-family: "DM Sans", sans-serif;
-  font-weight: 200;
-font-size: 30px;
-font-style: normal;
-line-height: 100%; /* 24.8px */
 }
 
-/* ✅ Mobile: Flatten layout */
+/* 🌟 Mobile */
 @media (max-width: 768px) {
-  .arcWrapper {
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 0rem;
+  .carouselTrack {
+    gap: 1.5rem;
+    animation: scroll 12s linear infinite;
   }
 
-  .arcWrapper .card {
-    transform: none !important;
-    max-width: 150px;
-    margin: 0 auto;
-  }
-
-  .subtitle {
-    margin-top: 0rem;
-    margin-bottom: 24rem;
-  }
-
-  .description {
-    font-size: 24px;
-    margin-top: 5rem;
-    margin-bottom: 2rem;
+  .card {
+    min-width: 160px;  /* ✅ mobile ke liye bhi thoda bada */
+    max-width: 200px;
+    padding: 1rem;
   }
 
   .logo {
-    width: clamp(50px, 80%, 100px) !important;
-    height: clamp(50px, 80%, 100px) !important;
+    max-height: 120px; /* ✅ mobile pe bhi bigger */
+  }
+
+  .subtitle {
+    font-size: 24px;
+  }
+
+  .description {
+    font-size: 18px;
   }
 }
