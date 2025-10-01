@@ -28,21 +28,53 @@ export default function Services() {
     },
   ];
 
+  const handleServiceClick = (link: string) => {
+    router.push(link);
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent, link: string) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      router.push(link);
+    }
+  };
+
   return (
     <section id="services" className={styles.servicesSection}>
       <div className={styles.container}>
-        <h2 className={styles.title}>Our Services</h2>
+        <div className={styles.headerContent}>
+          <div className={styles.logoContainer}>
+            <img
+              src="/Ayunextlogo.png"
+              alt="Ayunext Solutions"
+              className={styles.logo}
+            />
+          </div>
+          <h2 className={styles.title}>
+            Powering Businesses with The Infinite Integration of Technology & Services
+          </h2>
+          <p className={styles.subtitle}>
+            Explore the services that matter most to you
+          </p>
+        </div>
         <div className={styles.cards}>
           {services.map((service, index) => (
             <button
               key={index}
               className={styles.card}
-              onClick={() => router.push(service.link)}
+              onClick={() => handleServiceClick(service.link)}
+              onKeyDown={(event) => handleKeyDown(event, service.link)}
+              aria-label={`Learn more about ${service.title}`}
+              type="button"
             >
-              <h3 className={styles.cardTitle}>{service.title}</h3>
-              <div className={styles.icon}>{service.icon}</div>
-              <p className={styles.description}>{service.desc}</p>
-              <span className={styles.arrowButton}>→</span>
+              <div className={styles.cardContent}>
+                <h3 className={styles.cardTitle}>{service.title}</h3>
+                <div className={styles.icon} aria-hidden="true">
+                  {service.icon}
+                </div>
+                <p className={styles.description}>{service.desc}</p>
+                <span className={styles.getAdvice}>Get Advice</span>
+              </div>
             </button>
           ))}
         </div>
