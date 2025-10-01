@@ -10,11 +10,6 @@ const testimonials = [
   { quote: "We leveraged their AI-Powered Automation & Analytics to overhaul our data reporting. We now have insights in minutes that used to take days. Truly transformative", name: "", position: "Cloud/AI" },
 ];
 
-const stats = [
-  { number: "50+", label: "Clients Served" },
-  { number: "95%", label: "Positive Feedback" },
-  { number: "100+", label: "Successful Projects" },
-];
 
 export default function ClientsSpeak() {
   const [current, setCurrent] = useState(0);
@@ -70,14 +65,7 @@ export default function ClientsSpeak() {
           </p>
 
           {/* Stats Section */}
-          <div className={styles.stats}>
-            {stats.map((s, idx) => (
-              <div key={idx} className={styles.statItem}>
-                <div className={styles.statNumber}>{s.number}</div>
-                <div className={styles.statLabel}>{s.label}</div>
-              </div>
-            ))}
-          </div>
+          
         </div>
 
         {/* Right Content - Carousel */}
