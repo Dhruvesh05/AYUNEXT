@@ -83,7 +83,7 @@ html, body {
   color: #ffffff;
   box-shadow: 0 8px 32px rgba(255, 255, 255, 1);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 1);
   animation: float 5s ease-in-out infinite;
 }
 
@@ -93,7 +93,7 @@ html, body {
 }
 
 .title {
-  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 1);
   font-weight: 700;
   font-size: clamp(2rem, 5vw, 3.5rem);
   margin-bottom: 1rem;
@@ -101,7 +101,7 @@ html, body {
 }
 
 .subtitle {
-  font-weight: 400;
+  font-weight: 700;
   font-size: clamp(0.9rem, 4vw, 2rem);
   line-height: 1.7;
   max-width: 800px;
