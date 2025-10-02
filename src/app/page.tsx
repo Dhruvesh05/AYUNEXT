@@ -6,27 +6,30 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <div className={styles.container}>
-      {/* Header & Hero */}
+      {/* Overlay Content */}
       <div className={styles.overlay}>
         <header className={styles.header}>
-          <div className={styles.logo}>
-            <img src="/Ayunextlogo.png" alt="Ayunext Solutions Logo" />
-          </div>
+          {/* Logo can go here if needed */}
         </header>
 
         <div className={styles.centerContent}>
-          <h1 className={styles.title}>
-            Transform Your Business with Next-Gen Solutions
-          </h1>
-          <p className={styles.subtitle}>
-            Powering Businesses with The Infinite Integration of Technology & Services.
+          <div className={styles.textBox}>
+            <h1 className={styles.title}>
+              <div className={styles.logo}>
+                <img src="/Ayunextlogo.png" alt="Ayunext Solutions" />
+              </div>
+            </h1>
+            <p className={styles.subtitle}>
+              Powering Businesses with The Infinite Integration of Technology & Services.
+            </p>
             <h3>Explore the services that matter most to you.</h3>
-          </p>
+          </div>
         </div>
       </div>
 
-      {/* Services Section */}
+      {/* Background Services Section */}
       <div className={styles.services}>
+        {/* Digital Marketing */}
         <div className={`${styles.card} ${styles.marketing}`}>
           <div className={styles.cardBackground}></div>
           <div className={styles.cardContent}>
@@ -37,6 +40,7 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Software Services */}
         <div className={`${styles.card} ${styles.software}`}>
           <div className={styles.cardBackground}></div>
           <div className={styles.cardContent}>
@@ -47,6 +51,7 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Financial Services */}
         <div className={`${styles.card} ${styles.financial}`}>
           <div className={styles.cardBackground}></div>
           <div className={styles.cardContent}>
