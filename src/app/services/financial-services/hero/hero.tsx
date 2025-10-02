@@ -19,13 +19,13 @@ const HeroSection = () => {
       heading: "Mutual Fund Investments",
       description:
         "Guiding clients on strategic investments in diversified mutual funds to grow capital and align with risk tolerance.",
-      imgSrc: "f1.png",
+      imgSrc: "/f1.png",
     },
     {
       heading: "Goal-Based Financial Planning",
       description:
         "Creating structured plans focused on achieving specific personal or business financial milestones, such as buying a house or funding education.",
-      imgSrc: "f2.png",
+      imgSrc: "/f2.png",
     },
     {
       heading: "Tax Saving Solutions",

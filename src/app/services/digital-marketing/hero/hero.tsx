@@ -19,13 +19,13 @@ const HeroSection = () => {
       heading: "Social Media Management",
       description:
         "Strategically managing and creating content for social platforms to foster community, increase brand visibility, and drive engagement.",
-      imgSrc: "d1.png",
+      imgSrc: "/d1.png",
     },
     {
       heading: "Search Engine Optimization (SEO)",
       description:
         "Optimizing your website and content to achieve higher rankings in search results, increasing organic (unpaid) traffic and visibility.",
-      imgSrc: "d2.png",
+      imgSrc: "/d2.png",
     },
     {
       heading: "Content Creation and Marketing",

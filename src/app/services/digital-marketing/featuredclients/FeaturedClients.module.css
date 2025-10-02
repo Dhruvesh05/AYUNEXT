@@ -125,17 +125,17 @@
 @media (max-width: 768px) {
   .carouselTrack {
     gap: 1.5rem;
-    animation: scroll 12s linear infinite;
+    animation: scroll 2s linear infinite; /* ✅ mobile pe fast */
   }
 
   .card {
-    min-width: 160px;  /* ✅ mobile ke liye bhi thoda bada */
+    min-width: 160px;  
     max-width: 200px;
     padding: 1rem;
   }
 
   .logo {
-    max-height: 120px; /* ✅ mobile pe bhi bigger */
+    max-height: 120px; 
   }
 
   .subtitle {
@@ -145,4 +145,4 @@
   .description {
     font-size: 18px;
   }
-}
+} 
