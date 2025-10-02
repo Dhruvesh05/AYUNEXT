@@ -62,14 +62,12 @@ export default function SoftwareDevelopment() {
               <a href="#about-us" className="nav-link" onClick={(e) => handleSmoothScroll(e, "about-us")}>About Us</a>
             </li>
             <li className="services-nav" ref={dropdownRef}>
-              <a className="nav-link">
-                <button
-                  className={`dropdown-arrow ${dropdownOpen ? "open" : ""}`}
-                  onClick={() => setDropdownOpen(!dropdownOpen)}
-                >
-                  Services ▼
-                </button>
-              </a>
+              <button
+                className={`nav-link dropdown-arrow ${dropdownOpen ? "open" : ""}`}
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+              >
+                Services ▼
+              </button>
               <div className={`dropdown-menu ${dropdownOpen ? "open" : ""}`}>
                 <a
                   href="#hero"
